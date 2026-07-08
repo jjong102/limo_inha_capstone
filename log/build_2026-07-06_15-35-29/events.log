@@ -1,0 +1,131 @@
+[0.000000] (-) TimerEvent: {}
+[0.000768] (jetracer_ros2) JobQueued: {'identifier': 'jetracer_ros2', 'dependencies': OrderedDict()}
+[0.001387] (limo_aj) JobQueued: {'identifier': 'limo_aj', 'dependencies': OrderedDict()}
+[0.001741] (limo_lidar) JobQueued: {'identifier': 'limo_lidar', 'dependencies': OrderedDict()}
+[0.002055] (jetracer_ros2) JobStarted: {'identifier': 'jetracer_ros2'}
+[0.023071] (limo_aj) JobStarted: {'identifier': 'limo_aj'}
+[0.034090] (limo_lidar) JobStarted: {'identifier': 'limo_lidar'}
+[0.099288] (-) TimerEvent: {}
+[0.200143] (-) TimerEvent: {}
+[0.300757] (-) TimerEvent: {}
+[0.401374] (-) TimerEvent: {}
+[0.501999] (-) TimerEvent: {}
+[0.603254] (-) TimerEvent: {}
+[0.704972] (-) TimerEvent: {}
+[0.805606] (-) TimerEvent: {}
+[0.906250] (-) TimerEvent: {}
+[1.006882] (-) TimerEvent: {}
+[1.107507] (-) TimerEvent: {}
+[1.208185] (-) TimerEvent: {}
+[1.308825] (-) TimerEvent: {}
+[1.409453] (-) TimerEvent: {}
+[1.510085] (-) TimerEvent: {}
+[1.610691] (-) TimerEvent: {}
+[1.711755] (-) TimerEvent: {}
+[1.814500] (-) TimerEvent: {}
+[1.915212] (-) TimerEvent: {}
+[2.015824] (-) TimerEvent: {}
+[2.116477] (-) TimerEvent: {}
+[2.217055] (-) TimerEvent: {}
+[2.317666] (-) TimerEvent: {}
+[2.418275] (-) TimerEvent: {}
+[2.518912] (-) TimerEvent: {}
+[2.619516] (-) TimerEvent: {}
+[2.720146] (-) TimerEvent: {}
+[2.820799] (-) TimerEvent: {}
+[2.921434] (-) TimerEvent: {}
+[3.022542] (-) TimerEvent: {}
+[3.123255] (-) TimerEvent: {}
+[3.223943] (-) TimerEvent: {}
+[3.273494] (jetracer_ros2) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/wego/third_impact/build/jetracer_ros2/build', '--no-deps', 'symlink_data'], 'cwd': '/home/wego/third_impact/build/jetracer_ros2', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'PYTHONWARNINGS': 'ignore', 'CONDA_PROMPT_MODIFIER': '', 'TENSORRT_INSTALL': '/usr/local/TensorRT-10.3.0.26', 'USER': 'wego', 'SSH_CLIENT': '192.168.1.56 57288 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/lib:/usr/lib/aarch64-linux-gnu:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.6/lib64::/usr/local/TensorRT-10.3.0.26/lib', 'BROWSER': '/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/bin/helpers/browser.sh', 'MOTD_SHOWN': 'pam', 'HOME': '/home/wego', 'CONDA_SHLVL': '0', 'TERM_PROGRAM_VERSION': '1.127.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-7dbeae46-c8e1-4898-bd0f-8a66610fe41b.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/node', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', '_CE_M': '', '_CONDA_ROOT': '/home/wego/miniconda3', 'COLCON_PREFIX_PATH': '/home/wego/third_impact/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'wego', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'CLAUDE_CODE_SSE_PORT': '32882', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '5', '_CE_CONDA': '', 'ROS_LOCALHOST_ONLY': '1', 'PATH': '/usr/src/tensorrt/bin:/opt/ros/humble/bin:/usr/local/cuda-12.6/bin:/home/wego/miniconda3/condabin:/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-9880c2d5eb.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/wego/third_impact/install/limo_lidar:/home/wego/third_impact/install/limo_aj:/home/wego/third_impact/install/jetracer_ros2:/opt/ros/humble', 'CONDA_PYTHON_EXE': '/home/wego/miniconda3/bin/python', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CONDA_DEFAULT_ENV': '', '_CONDA_EXE': '/home/wego/miniconda3/bin/conda', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/wego/third_impact/build/jetracer_ros2', 'LC_ALL': 'en_US.UTF-8', 'CONDA_EXE': '/home/wego/miniconda3/bin/conda', 'SSH_CONNECTION': '192.168.1.56 57288 192.168.1.51 22', 'PYTHONPATH': '/home/wego/third_impact/build/jetracer_ros2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages:/home/wego/miniconda3/envs/dl_env/lib/python3.10/site-packages:/usr/lib/python3.10/dist-packages:/home/wego/third_impact/build/limo_lidar:/home/wego/third_impact/install/limo_lidar/lib/python3.10/site-packages:/home/wego/third_impact/build/limo_aj:/home/wego/third_impact/install/limo_aj/lib/python3.10/site-packages:/home/wego/third_impact/build/jetracer_ros2:/home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'CONDA_PREFIX': '', 'COLCON': '1'}, 'shell': False}
+[3.283834] (limo_aj) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/wego/third_impact/build/limo_aj/build', '--no-deps', 'symlink_data'], 'cwd': '/home/wego/third_impact/build/limo_aj', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'PYTHONWARNINGS': 'ignore', 'CONDA_PROMPT_MODIFIER': '', 'TENSORRT_INSTALL': '/usr/local/TensorRT-10.3.0.26', 'USER': 'wego', 'SSH_CLIENT': '192.168.1.56 57288 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/lib:/usr/lib/aarch64-linux-gnu:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.6/lib64::/usr/local/TensorRT-10.3.0.26/lib', 'BROWSER': '/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/bin/helpers/browser.sh', 'MOTD_SHOWN': 'pam', 'HOME': '/home/wego', 'CONDA_SHLVL': '0', 'TERM_PROGRAM_VERSION': '1.127.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-7dbeae46-c8e1-4898-bd0f-8a66610fe41b.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/node', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', '_CE_M': '', '_CONDA_ROOT': '/home/wego/miniconda3', 'COLCON_PREFIX_PATH': '/home/wego/third_impact/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'wego', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'CLAUDE_CODE_SSE_PORT': '32882', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '5', '_CE_CONDA': '', 'ROS_LOCALHOST_ONLY': '1', 'PATH': '/usr/src/tensorrt/bin:/opt/ros/humble/bin:/usr/local/cuda-12.6/bin:/home/wego/miniconda3/condabin:/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-9880c2d5eb.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/wego/third_impact/install/limo_lidar:/home/wego/third_impact/install/limo_aj:/home/wego/third_impact/install/jetracer_ros2:/opt/ros/humble', 'CONDA_PYTHON_EXE': '/home/wego/miniconda3/bin/python', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CONDA_DEFAULT_ENV': '', '_CONDA_EXE': '/home/wego/miniconda3/bin/conda', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/wego/third_impact/build/limo_aj', 'LC_ALL': 'en_US.UTF-8', 'CONDA_EXE': '/home/wego/miniconda3/bin/conda', 'SSH_CONNECTION': '192.168.1.56 57288 192.168.1.51 22', 'PYTHONPATH': '/home/wego/third_impact/build/limo_aj/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wego/third_impact/install/limo_aj/lib/python3.10/site-packages:/home/wego/miniconda3/envs/dl_env/lib/python3.10/site-packages:/usr/lib/python3.10/dist-packages:/home/wego/third_impact/build/limo_lidar:/home/wego/third_impact/install/limo_lidar/lib/python3.10/site-packages:/home/wego/third_impact/build/limo_aj:/home/wego/third_impact/install/limo_aj/lib/python3.10/site-packages:/home/wego/third_impact/build/jetracer_ros2:/home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'CONDA_PREFIX': '', 'COLCON': '1'}, 'shell': False}
+[3.324096] (-) TimerEvent: {}
+[3.424710] (-) TimerEvent: {}
+[3.429507] (limo_lidar) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/wego/third_impact/build/limo_lidar/build', '--no-deps', 'symlink_data'], 'cwd': '/home/wego/third_impact/build/limo_lidar', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'PYTHONWARNINGS': 'ignore', 'CONDA_PROMPT_MODIFIER': '', 'TENSORRT_INSTALL': '/usr/local/TensorRT-10.3.0.26', 'USER': 'wego', 'SSH_CLIENT': '192.168.1.56 57288 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/lib:/usr/lib/aarch64-linux-gnu:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.6/lib64::/usr/local/TensorRT-10.3.0.26/lib', 'BROWSER': '/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/bin/helpers/browser.sh', 'MOTD_SHOWN': 'pam', 'HOME': '/home/wego', 'CONDA_SHLVL': '0', 'TERM_PROGRAM_VERSION': '1.127.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-7dbeae46-c8e1-4898-bd0f-8a66610fe41b.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/node', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', '_CE_M': '', '_CONDA_ROOT': '/home/wego/miniconda3', 'COLCON_PREFIX_PATH': '/home/wego/third_impact/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'wego', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'CLAUDE_CODE_SSE_PORT': '32882', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '5', '_CE_CONDA': '', 'ROS_LOCALHOST_ONLY': '1', 'PATH': '/usr/src/tensorrt/bin:/opt/ros/humble/bin:/usr/local/cuda-12.6/bin:/home/wego/miniconda3/condabin:/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-9880c2d5eb.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/wego/third_impact/install/limo_lidar:/home/wego/third_impact/install/limo_aj:/home/wego/third_impact/install/jetracer_ros2:/opt/ros/humble', 'CONDA_PYTHON_EXE': '/home/wego/miniconda3/bin/python', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CONDA_DEFAULT_ENV': '', '_CONDA_EXE': '/home/wego/miniconda3/bin/conda', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/wego/third_impact/build/limo_lidar', 'LC_ALL': 'en_US.UTF-8', 'CONDA_EXE': '/home/wego/miniconda3/bin/conda', 'SSH_CONNECTION': '192.168.1.56 57288 192.168.1.51 22', 'PYTHONPATH': '/home/wego/third_impact/build/limo_lidar/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wego/third_impact/install/limo_lidar/lib/python3.10/site-packages:/home/wego/miniconda3/envs/dl_env/lib/python3.10/site-packages:/usr/lib/python3.10/dist-packages:/home/wego/third_impact/build/limo_lidar:/home/wego/third_impact/install/limo_lidar/lib/python3.10/site-packages:/home/wego/third_impact/build/limo_aj:/home/wego/third_impact/install/limo_aj/lib/python3.10/site-packages:/home/wego/third_impact/build/jetracer_ros2:/home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'CONDA_PREFIX': '', 'COLCON': '1'}, 'shell': False}
+[3.524911] (-) TimerEvent: {}
+[3.625700] (-) TimerEvent: {}
+[3.726323] (-) TimerEvent: {}
+[3.826970] (-) TimerEvent: {}
+[3.927587] (-) TimerEvent: {}
+[4.028189] (-) TimerEvent: {}
+[4.128787] (-) TimerEvent: {}
+[4.134531] (limo_aj) StdoutLine: {'line': b'running develop\n'}
+[4.183344] (jetracer_ros2) StdoutLine: {'line': b'running develop\n'}
+[4.228944] (-) TimerEvent: {}
+[4.284325] (limo_lidar) StdoutLine: {'line': b'running develop\n'}
+[4.329096] (-) TimerEvent: {}
+[4.429807] (-) TimerEvent: {}
+[4.530463] (-) TimerEvent: {}
+[4.631252] (-) TimerEvent: {}
+[4.731872] (-) TimerEvent: {}
+[4.735561] (limo_aj) StdoutLine: {'line': b'running egg_info\n'}
+[4.786552] (limo_aj) StdoutLine: {'line': b'writing limo_aj.egg-info/PKG-INFO\n'}
+[4.788996] (limo_aj) StdoutLine: {'line': b'writing dependency_links to limo_aj.egg-info/dependency_links.txt\n'}
+[4.790327] (limo_aj) StdoutLine: {'line': b'writing entry points to limo_aj.egg-info/entry_points.txt\n'}
+[4.791616] (limo_aj) StdoutLine: {'line': b'writing requirements to limo_aj.egg-info/requires.txt\n'}
+[4.792414] (limo_aj) StdoutLine: {'line': b'writing top-level names to limo_aj.egg-info/top_level.txt\n'}
+[4.832014] (-) TimerEvent: {}
+[4.868579] (limo_lidar) StdoutLine: {'line': b'running egg_info\n'}
+[4.889550] (jetracer_ros2) StdoutLine: {'line': b'running egg_info\n'}
+[4.901496] (limo_aj) StdoutLine: {'line': b"reading manifest file 'limo_aj.egg-info/SOURCES.txt'\n"}
+[4.906366] (limo_aj) StdoutLine: {'line': b"writing manifest file 'limo_aj.egg-info/SOURCES.txt'\n"}
+[4.912193] (limo_lidar) StdoutLine: {'line': b'writing limo_lidar.egg-info/PKG-INFO\n'}
+[4.913804] (limo_lidar) StdoutLine: {'line': b'writing dependency_links to limo_lidar.egg-info/dependency_links.txt\n'}
+[4.914476] (limo_lidar) StdoutLine: {'line': b'writing entry points to limo_lidar.egg-info/entry_points.txt\n'}
+[4.915241] (limo_lidar) StdoutLine: {'line': b'writing requirements to limo_lidar.egg-info/requires.txt\n'}
+[4.915712] (limo_lidar) StdoutLine: {'line': b'writing top-level names to limo_lidar.egg-info/top_level.txt\n'}
+[4.932140] (-) TimerEvent: {}
+[4.940980] (jetracer_ros2) StdoutLine: {'line': b'writing jetracer_ros2.egg-info/PKG-INFO\n'}
+[4.942457] (jetracer_ros2) StdoutLine: {'line': b'writing dependency_links to jetracer_ros2.egg-info/dependency_links.txt\n'}
+[4.943673] (jetracer_ros2) StdoutLine: {'line': b'writing entry points to jetracer_ros2.egg-info/entry_points.txt\n'}
+[4.944302] (jetracer_ros2) StdoutLine: {'line': b'writing requirements to jetracer_ros2.egg-info/requires.txt\n'}
+[4.945542] (jetracer_ros2) StdoutLine: {'line': b'writing top-level names to jetracer_ros2.egg-info/top_level.txt\n'}
+[4.995007] (limo_aj) StdoutLine: {'line': b'running build_ext\n'}
+[4.995809] (limo_aj) StdoutLine: {'line': b'Creating /home/wego/third_impact/install/limo_aj/lib/python3.10/site-packages/limo-aj.egg-link (link to .)\n'}
+[4.998581] (limo_aj) StdoutLine: {'line': b'Installing cone_check_node script to /home/wego/third_impact/install/limo_aj/lib/limo_aj\n'}
+[4.999392] (limo_aj) StdoutLine: {'line': b'Installing cone_node script to /home/wego/third_impact/install/limo_aj/lib/limo_aj\n'}
+[4.999822] (limo_aj) StdoutLine: {'line': b'Installing lidar_angle_node script to /home/wego/third_impact/install/limo_aj/lib/limo_aj\n'}
+[5.000185] (limo_aj) StdoutLine: {'line': b'Installing lidar_check_node script to /home/wego/third_impact/install/limo_aj/lib/limo_aj\n'}
+[5.000517] (limo_aj) StdoutLine: {'line': b'Installing steering_test_node script to /home/wego/third_impact/install/limo_aj/lib/limo_aj\n'}
+[5.000851] (limo_aj) StdoutLine: {'line': b'Installing traffic_node script to /home/wego/third_impact/install/limo_aj/lib/limo_aj\n'}
+[5.001445] (limo_aj) StdoutLine: {'line': b'\n'}
+[5.001627] (limo_aj) StdoutLine: {'line': b'Installed /home/wego/third_impact/build/limo_aj\n'}
+[5.001856] (limo_aj) StdoutLine: {'line': b'running symlink_data\n'}
+[5.002916] (limo_lidar) StdoutLine: {'line': b"reading manifest file 'limo_lidar.egg-info/SOURCES.txt'\n"}
+[5.005393] (limo_lidar) StdoutLine: {'line': b"writing manifest file 'limo_lidar.egg-info/SOURCES.txt'\n"}
+[5.032296] (-) TimerEvent: {}
+[5.046485] (jetracer_ros2) StdoutLine: {'line': b"reading manifest file 'jetracer_ros2.egg-info/SOURCES.txt'\n"}
+[5.049868] (jetracer_ros2) StdoutLine: {'line': b"writing manifest file 'jetracer_ros2.egg-info/SOURCES.txt'\n"}
+[5.079179] (limo_lidar) StdoutLine: {'line': b'running build_ext\n'}
+[5.079895] (limo_lidar) StdoutLine: {'line': b'Creating /home/wego/third_impact/install/limo_lidar/lib/python3.10/site-packages/limo-lidar.egg-link (link to .)\n'}
+[5.081610] (limo_lidar) StdoutLine: {'line': b'Installing line_check script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar\n'}
+[5.082113] (limo_lidar) StdoutLine: {'line': b'Installing obstacle_avoid script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar\n'}
+[5.082474] (limo_lidar) StdoutLine: {'line': b'Installing parking script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar\n'}
+[5.082804] (limo_lidar) StdoutLine: {'line': b'Installing reset_steer script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar\n'}
+[5.083176] (limo_lidar) StdoutLine: {'line': b'Installing stop_and_go script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar\n'}
+[5.083483] (limo_lidar) StdoutLine: {'line': b'Installing stop_test script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar\n'}
+[5.083795] (limo_lidar) StdoutLine: {'line': b'Installing stop_test_2 script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar\n'}
+[5.084117] (limo_lidar) StdoutLine: {'line': b'Installing test script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar\n'}
+[5.084453] (limo_lidar) StdoutLine: {'line': b'Installing yellow_det script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar\n'}
+[5.085122] (limo_lidar) StdoutLine: {'line': b'\n'}
+[5.085324] (limo_lidar) StdoutLine: {'line': b'Installed /home/wego/third_impact/build/limo_lidar\n'}
+[5.085537] (limo_lidar) StdoutLine: {'line': b'running symlink_data\n'}
+[5.132454] (-) TimerEvent: {}
+[5.143352] (limo_aj) CommandEnded: {'returncode': 0}
+[5.145482] (jetracer_ros2) StdoutLine: {'line': b'running build_ext\n'}
+[5.146465] (jetracer_ros2) StdoutLine: {'line': b'Creating /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer-ros2.egg-link (link to .)\n'}
+[5.147677] (jetracer_ros2) StdoutLine: {'line': b'Installing data_collection_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2\n'}
+[5.148119] (jetracer_ros2) StdoutLine: {'line': b'Installing inference_StopAndGo_with_joy_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2\n'}
+[5.148381] (jetracer_ros2) StdoutLine: {'line': b'Installing inference_StopAndGo_with_lidar_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2\n'}
+[5.149067] (jetracer_ros2) StdoutLine: {'line': b'Installing inference_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2\n'}
+[5.150258] (jetracer_ros2) StdoutLine: {'line': b'Installing inference_people_estop_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2\n'}
+[5.150831] (jetracer_ros2) StdoutLine: {'line': b'\n'}
+[5.151301] (jetracer_ros2) StdoutLine: {'line': b'Installed /home/wego/third_impact/build/jetracer_ros2\n'}
+[5.152313] (jetracer_ros2) StdoutLine: {'line': b'running symlink_data\n'}
+[5.201328] (limo_aj) JobEnded: {'identifier': 'limo_aj', 'rc': 0}
+[5.204760] (limo_lidar) CommandEnded: {'returncode': 0}
+[5.227730] (limo_lidar) JobEnded: {'identifier': 'limo_lidar', 'rc': 0}
+[5.232598] (-) TimerEvent: {}
+[5.266317] (jetracer_ros2) CommandEnded: {'returncode': 0}
+[5.300318] (jetracer_ros2) JobEnded: {'identifier': 'jetracer_ros2', 'rc': 0}
+[5.302700] (-) EventReactorShutdown: {}

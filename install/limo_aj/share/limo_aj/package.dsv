@@ -1,0 +1,9 @@
+source;share/limo_aj/hook/pythonpath.ps1
+source;share/limo_aj/hook/pythonpath.dsv
+source;share/limo_aj/hook/pythonpath.sh
+source;share/limo_aj/hook/ament_prefix_path.ps1
+source;share/limo_aj/hook/ament_prefix_path.dsv
+source;share/limo_aj/hook/ament_prefix_path.sh
+source;../../build/limo_aj/share/limo_aj/hook/pythonpath_develop.ps1
+source;../../build/limo_aj/share/limo_aj/hook/pythonpath_develop.dsv
+source;../../build/limo_aj/share/limo_aj/hook/pythonpath_develop.sh

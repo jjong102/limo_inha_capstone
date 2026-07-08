@@ -1,0 +1,98 @@
+[0.000000] (-) TimerEvent: {}
+[0.002238] (jetracer_ros2) JobQueued: {'identifier': 'jetracer_ros2', 'dependencies': OrderedDict()}
+[0.002794] (limo_aj) JobQueued: {'identifier': 'limo_aj', 'dependencies': OrderedDict()}
+[0.003357] (limo_base) JobQueued: {'identifier': 'limo_base', 'dependencies': OrderedDict()}
+[0.003491] (limo_lidar) JobQueued: {'identifier': 'limo_lidar', 'dependencies': OrderedDict()}
+[0.003643] (slam_parking) JobQueued: {'identifier': 'slam_parking', 'dependencies': OrderedDict()}
+[0.003722] (jetracer_ros2) JobStarted: {'identifier': 'jetracer_ros2'}
+[0.022868] (limo_aj) JobStarted: {'identifier': 'limo_aj'}
+[0.035465] (limo_base) JobStarted: {'identifier': 'limo_base'}
+[0.044132] (limo_lidar) JobStarted: {'identifier': 'limo_lidar'}
+[0.056820] (slam_parking) JobStarted: {'identifier': 'slam_parking'}
+[0.099781] (-) TimerEvent: {}
+[0.200667] (-) TimerEvent: {}
+[0.301343] (-) TimerEvent: {}
+[0.402034] (-) TimerEvent: {}
+[0.502728] (-) TimerEvent: {}
+[0.603546] (-) TimerEvent: {}
+[0.704600] (-) TimerEvent: {}
+[0.805506] (-) TimerEvent: {}
+[0.906142] (-) TimerEvent: {}
+[1.006840] (-) TimerEvent: {}
+[1.107529] (-) TimerEvent: {}
+[1.208208] (-) TimerEvent: {}
+[1.243424] (limo_base) JobProgress: {'identifier': 'limo_base', 'progress': 'cmake'}
+[1.245211] (limo_base) Command: {'cmd': ['/usr/bin/cmake', '/home/wego/third_impact/src/limo_base', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/wego/third_impact/install/limo_base'], 'cwd': '/home/wego/third_impact/build/limo_base', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('PYTHONWARNINGS', 'ignore'), ('CONDA_PROMPT_MODIFIER', ''), ('TENSORRT_INSTALL', '/usr/local/TensorRT-10.3.0.26'), ('USER', 'wego'), ('SSH_CLIENT', '192.168.1.56 49676 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/lib:/usr/lib/aarch64-linux-gnu:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.6/lib64::/usr/local/TensorRT-10.3.0.26/lib'), ('BROWSER', '/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/wego'), ('CONDA_SHLVL', '0'), ('TERM_PROGRAM_VERSION', '1.127.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-f339dc79-12a1-4581-8bc2-60b651d11c7f.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('_CE_M', ''), ('_CONDA_ROOT', '/home/wego/miniconda3'), ('COLCON_PREFIX_PATH', '/home/wego/third_impact/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'wego'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('CLAUDE_CODE_SSE_PORT', '13795'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '4'), ('_CE_CONDA', ''), ('ROS_LOCALHOST_ONLY', '1'), ('PATH', '/usr/src/tensorrt/bin:/opt/ros/humble/bin:/usr/local/cuda-12.6/bin:/home/wego/miniconda3/condabin:/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-9880c2d5eb.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/wego/third_impact/install/slam_parking:/home/wego/third_impact/install/limo_lidar:/home/wego/third_impact/install/limo_aj:/home/wego/third_impact/install/jetracer_ros2:/opt/ros/humble'), ('CONDA_PYTHON_EXE', '/home/wego/miniconda3/bin/python'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('CONDA_DEFAULT_ENV', ''), ('_CONDA_EXE', '/home/wego/miniconda3/bin/conda'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/wego/third_impact/build/limo_base'), ('LC_ALL', 'en_US.UTF-8'), ('CONDA_EXE', '/home/wego/miniconda3/bin/conda'), ('SSH_CONNECTION', '192.168.1.56 49676 192.168.1.51 22'), ('PYTHONPATH', '/home/wego/miniconda3/envs/dl_env/lib/python3.10/site-packages:/usr/lib/python3.10/dist-packages:/home/wego/third_impact/build/slam_parking:/home/wego/third_impact/install/slam_parking/lib/python3.10/site-packages:/home/wego/third_impact/build/limo_lidar:/home/wego/third_impact/install/limo_lidar/lib/python3.10/site-packages:/home/wego/third_impact/build/limo_aj:/home/wego/third_impact/install/limo_aj/lib/python3.10/site-packages:/home/wego/third_impact/build/jetracer_ros2:/home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('CONDA_PREFIX', ''), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/wego/third_impact/install/slam_parking:/home/wego/third_impact/install/limo_lidar:/home/wego/third_impact/install/limo_aj:/home/wego/third_impact/install/jetracer_ros2:/opt/ros/humble')]), 'shell': False}
+[1.308379] (-) TimerEvent: {}
+[1.409366] (-) TimerEvent: {}
+[1.510158] (-) TimerEvent: {}
+[1.610994] (-) TimerEvent: {}
+[1.711805] (-) TimerEvent: {}
+[1.812615] (-) TimerEvent: {}
+[1.913517] (-) TimerEvent: {}
+[2.014213] (-) TimerEvent: {}
+[2.114892] (-) TimerEvent: {}
+[2.215702] (-) TimerEvent: {}
+[2.317015] (-) TimerEvent: {}
+[2.403597] (limo_base) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[2.405074] (limo_base) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[2.405578] (limo_base) StdoutLine: {'line': b'-- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[2.406654] (limo_base) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[2.407180] (limo_base) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[2.407466] (limo_base) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[2.407674] (limo_base) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.407922] (limo_base) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.408119] (limo_base) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[2.408308] (limo_base) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.9 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[2.408490] (limo_base) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[2.408675] (limo_base) StdoutLine: {'line': b'-- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[2.408849] (limo_base) StdoutLine: {'line': b'-- Found nav_msgs: 4.9.0 (/opt/ros/humble/share/nav_msgs/cmake)\n'}
+[2.409027] (limo_base) StdoutLine: {'line': b'-- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[2.409202] (limo_base) StdoutLine: {'line': b'-- Found tf2: 0.25.16 (/opt/ros/humble/share/tf2/cmake)\n'}
+[2.409370] (limo_base) StdoutLine: {'line': b'-- Found tf2_ros: 0.25.16 (/opt/ros/humble/share/tf2_ros/cmake)\n'}
+[2.417820] (-) TimerEvent: {}
+[2.516902] (limo_base) StdoutLine: {'line': b'-- Found tf2_geometry_msgs: 0.25.16 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)\n'}
+[2.517919] (-) TimerEvent: {}
+[2.527540] (limo_base) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)\n'}
+[2.532598] (limo_base) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[2.565946] (limo_base) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:26 (find_package):\n'}
+[2.566586] (limo_base) StderrLine: {'line': b'  By not providing "Findlimo_msgs.cmake" in CMAKE_MODULE_PATH this project\n'}
+[2.566963] (limo_base) StderrLine: {'line': b'  has asked CMake to find a package configuration file provided by\n'}
+[2.567151] (limo_base) StderrLine: {'line': b'  "limo_msgs", but CMake did not find one.\n'}
+[2.567322] (limo_base) StderrLine: {'line': b'\n'}
+[2.567485] (limo_base) StderrLine: {'line': b'  Could not find a package configuration file provided by "limo_msgs" with\n'}
+[2.567646] (limo_base) StderrLine: {'line': b'  any of the following names:\n'}
+[2.567802] (limo_base) StderrLine: {'line': b'\n'}
+[2.567985] (limo_base) StderrLine: {'line': b'    limo_msgsConfig.cmake\n'}
+[2.568135] (limo_base) StderrLine: {'line': b'    limo_msgs-config.cmake\n'}
+[2.568280] (limo_base) StderrLine: {'line': b'\n'}
+[2.568422] (limo_base) StderrLine: {'line': b'  Add the installation prefix of "limo_msgs" to CMAKE_PREFIX_PATH or set\n'}
+[2.568565] (limo_base) StderrLine: {'line': b'  "limo_msgs_DIR" to a directory containing one of the above files.  If\n'}
+[2.568709] (limo_base) StderrLine: {'line': b'  "limo_msgs" provides a separate development package or SDK, be sure it has\n'}
+[2.568852] (limo_base) StderrLine: {'line': b'  been installed.\n'}
+[2.568998] (limo_base) StderrLine: {'line': b'\n'}
+[2.569144] (limo_base) StderrLine: {'line': b'\x1b[0m\n'}
+[2.569284] (limo_base) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[2.569451] (limo_base) StdoutLine: {'line': b'See also "/home/wego/third_impact/build/limo_base/CMakeFiles/CMakeOutput.log".\n'}
+[2.606242] (limo_base) CommandEnded: {'returncode': 1}
+[2.618133] (-) TimerEvent: {}
+[2.674954] (limo_base) JobEnded: {'identifier': 'limo_base', 'rc': 1}
+[2.718289] (-) TimerEvent: {}
+[2.818946] (-) TimerEvent: {}
+[2.919620] (-) TimerEvent: {}
+[3.020305] (-) TimerEvent: {}
+[3.120976] (-) TimerEvent: {}
+[3.221600] (-) TimerEvent: {}
+[3.322239] (-) TimerEvent: {}
+[3.422890] (-) TimerEvent: {}
+[3.523634] (-) TimerEvent: {}
+[3.624588] (-) TimerEvent: {}
+[3.725296] (-) TimerEvent: {}
+[3.825977] (-) TimerEvent: {}
+[3.926667] (-) TimerEvent: {}
+[4.011400] (slam_parking) JobEnded: {'identifier': 'slam_parking', 'rc': 'SIGINT'}
+[4.026837] (-) TimerEvent: {}
+[4.041942] (limo_lidar) JobEnded: {'identifier': 'limo_lidar', 'rc': 'SIGINT'}
+[4.058452] (jetracer_ros2) JobEnded: {'identifier': 'jetracer_ros2', 'rc': 'SIGINT'}
+[4.068668] (limo_aj) JobEnded: {'identifier': 'limo_aj', 'rc': 'SIGINT'}
+[4.081352] (-) EventReactorShutdown: {}

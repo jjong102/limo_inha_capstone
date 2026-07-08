@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: limo_aj
+Version: 0.0.0
+Summary: TODO: Package description
+Maintainer: wego
+Maintainer-email: wego@todo.todo
+License: Apache-2.0
+Requires-Dist: setuptools

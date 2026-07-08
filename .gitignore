@@ -1,0 +1,4 @@
+src/jetracer_ros2/jetracer_dataset/
+src/dataset/
+*.zip
+*.engine

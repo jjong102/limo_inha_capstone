@@ -1,0 +1,14 @@
+package.xml
+setup.cfg
+setup.py
+resource/slam_parking
+slam_parking/__init__.py
+slam_parking/parking_navigator_node.py
+slam_parking/parking_pose_recorder_node.py
+slam_parking.egg-info/PKG-INFO
+slam_parking.egg-info/SOURCES.txt
+slam_parking.egg-info/dependency_links.txt
+slam_parking.egg-info/entry_points.txt
+slam_parking.egg-info/requires.txt
+slam_parking.egg-info/top_level.txt
+slam_parking.egg-info/zip-safe

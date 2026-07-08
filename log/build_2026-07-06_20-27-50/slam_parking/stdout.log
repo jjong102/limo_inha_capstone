@@ -1,0 +1,20 @@
+running develop
+running egg_info
+creating slam_parking.egg-info
+writing slam_parking.egg-info/PKG-INFO
+writing dependency_links to slam_parking.egg-info/dependency_links.txt
+writing requirements to slam_parking.egg-info/requires.txt
+writing top-level names to slam_parking.egg-info/top_level.txt
+writing manifest file 'slam_parking.egg-info/SOURCES.txt'
+reading manifest file 'slam_parking.egg-info/SOURCES.txt'
+writing manifest file 'slam_parking.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/wego/third_impact/install/slam_parking/lib/python3.10/site-packages/slam-parking.egg-link (link to .)
+
+Installed /home/wego/third_impact/build/slam_parking
+running symlink_data
+creating /home/wego/third_impact/install/slam_parking/share/ament_index
+creating /home/wego/third_impact/install/slam_parking/share/ament_index/resource_index
+creating /home/wego/third_impact/install/slam_parking/share/ament_index/resource_index/packages
+symbolically linking /home/wego/third_impact/build/slam_parking/resource/slam_parking -> /home/wego/third_impact/install/slam_parking/share/ament_index/resource_index/packages
+symbolically linking /home/wego/third_impact/build/slam_parking/package.xml -> /home/wego/third_impact/install/slam_parking/share/slam_parking

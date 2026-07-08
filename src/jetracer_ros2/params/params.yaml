@@ -1,0 +1,68 @@
+data_collector_node:
+  ros__parameters:
+    # 지금 수집 중인 구간 번호 (1-5). 실행마다 바꿔가며 여러 코스를 나눠서 모을 수 있다.
+    section_id: 1
+
+    # 이미지/라벨을 저장할 위치. section_id별로 save_dir/section_N/ 폴더가 생긴다.
+    save_dir: '/home/wego/third_impact/src/jetracer_ros2/jetracer_dataset'
+
+    # 조이스틱 축/버튼. 이 Yahboom 패드(DragonRise 계열 컨트롤러)에서 실측 확인된 값:
+    # axes[0]이 왼쪽 스틱 좌우 (양수=왼쪽 — 일반적인 조이스틱 관례와 반대), X버튼=buttons[3].
+    joy_steering_axis: 0    # axes[0] → 조향
+    deadman_button: 3       # buttons[3] (X) — 누르고 있는 동안만 주행+저장
+
+    # 주행 파라미터. limo_base는 Ackermann 모드에서 r = linear.x / angular.z 로
+    # 실제 조향각을 역산하기 때문에, 여기 angular.z는 조향각 그 자체가 아니다.
+    # (변환 로직은 ackermann_utils.inner_angle_to_omega 참고)
+    max_steer_angle: 0.42   # LIMO 실제 최대 조향(안쪽 바퀴) 각도 [rad]
+    # 실측 결과 좌회전이 우회전보다 약하게 꺾이는 하드웨어 비대칭이 확인됨.
+    # 필요하면 1.0보다 크게 올려서 왼쪽 조향을 보정한다 (지금은 보정 없이 1.0).
+    left_steer_boost: 1.0
+    linear_x: 1.0           # X버튼 눌렀을 때 고정 주행 속도 [m/s]
+
+    # 이미지 저장 최대 주기. X버튼을 누르고 있을 때만 실제로 저장되고,
+    # 안 누르고 있으면 타이머는 돌아도 아무것도 저장하지 않는다.
+    save_rate_hz: 10.0
+
+    # 640×480 원본에서 위쪽 몇 %를 버릴지 (0.4 = 위 40% 제거, 0.0 = 크롭 없음).
+    # inference_node의 crop_ratio와 반드시 같은 값을 써야 한다 (수집/추론 전처리 일치).
+    crop_ratio: 0.0
+
+
+inference_node:
+  ros__parameters:
+    # section_N.engine (TensorRT) 또는 section_N.pth (PyTorch 대체용)가 들어있는 폴더
+    engine_dir: '/home/wego/third_impact/src/jetracer_ros2/jetracer_engines'
+
+    # 전체 구간 개수 (구간마다 모델 파일이 하나씩 있어야 함)
+    num_sections: 5
+
+    # 주행 파라미터. 데이터 수집 때와 반드시 같은 값을 써야 한다.
+    linear_x: 1.0           # 고정 주행 속도 [m/s]
+    max_steer_angle: 0.42   # 모델 출력 ±1.0 → 실제 조향각 ±max_steer_angle [rad]
+    # 여기엔 left_steer_boost가 없다 — 수집 단계에서 라벨에 이미 보정값을
+    # 반영했기 때문에, 학습된 모델 가중치 안에 보정이 이미 녹아들어 있다.
+
+    # data_collector_node의 crop_ratio와 반드시 같은 값을 써야 한다 (수집/추론 전처리 일치).
+    crop_ratio: 0.0
+
+    # inference_StopAndGo_with_lidar_node 전용 설정.
+    # 전방을 0도로 뒀을 때 [min, max] 범위 (음수=오른쪽, 양수=왼쪽, LaserScan 각도 관례) 안에서
+    # obstacle_distance_m보다 가까운 포인트가 obstacle_min_points개 이상이면
+    # 장애물로 판단해 정지한다 (점 하나로 오탐 방지).
+    obstacle_angle_deg_range: [-10.0, 10.0]  # 전방 기준 검사 각도 범위 [deg]
+    obstacle_distance_m: 1.0   # 이 거리보다 가까우면 장애물 후보로 카운트 [m]
+    obstacle_min_points: 1      # 위 조건을 만족하는 포인트 최소 개수
+    obstacle_stop_hold_sec: 3.0
+
+
+inference_people_estop_node:
+  ros__parameters:
+    # inference_node가 이미 따로 실행 중일 때 곁다리로 띄우는 독립 e-stop 노드 전용 설정.
+    # 전방을 0도로 뒀을 때 [min, max] 범위 (음수=오른쪽, 양수=왼쪽, LaserScan 각도 관례) 안에서
+    # obstacle_distance_m보다 가까운 포인트가 obstacle_min_points개 이상이면
+    # 장애물로 판단해 obstacle_stop_hold_sec초 동안 cmd_vel=0을 강제한 뒤 노드가 종료된다.
+    obstacle_angle_deg_range: [-10.0, 10.0]  # 전방 기준 검사 각도 범위 [deg]
+    obstacle_distance_m: 1.0    # 이 거리보다 가까우면 장애물 후보로 카운트 [m]
+    obstacle_min_points: 1      # 위 조건을 만족하는 포인트 최소 개수
+    obstacle_stop_hold_sec: 3.0 # 감지되면 cmd_vel=0을 강제할 시간 [sec]

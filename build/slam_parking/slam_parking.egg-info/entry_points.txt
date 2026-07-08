@@ -1,0 +1,3 @@
+[console_scripts]
+parking_navigator_node = slam_parking.parking_navigator_node:main
+parking_pose_recorder_node = slam_parking.parking_pose_recorder_node:main

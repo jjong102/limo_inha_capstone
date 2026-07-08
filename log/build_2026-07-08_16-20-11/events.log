@@ -1,0 +1,54 @@
+[0.000000] (-) TimerEvent: {}
+[0.000373] (-) JobUnselected: {'identifier': 'jetracer_ros2'}
+[0.000554] (-) JobUnselected: {'identifier': 'limo_aj'}
+[0.000740] (-) JobUnselected: {'identifier': 'limo_base'}
+[0.000842] (-) JobUnselected: {'identifier': 'slam_parking'}
+[0.001001] (limo_lidar) JobQueued: {'identifier': 'limo_lidar', 'dependencies': OrderedDict()}
+[0.001113] (limo_lidar) JobStarted: {'identifier': 'limo_lidar'}
+[0.097370] (-) TimerEvent: {}
+[0.198055] (-) TimerEvent: {}
+[0.298436] (-) TimerEvent: {}
+[0.398802] (-) TimerEvent: {}
+[0.499158] (-) TimerEvent: {}
+[0.599577] (-) TimerEvent: {}
+[0.699976] (-) TimerEvent: {}
+[0.800340] (-) TimerEvent: {}
+[0.900711] (-) TimerEvent: {}
+[1.001057] (-) TimerEvent: {}
+[1.101431] (-) TimerEvent: {}
+[1.127340] (limo_lidar) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/wego/third_impact/build/limo_lidar/build', '--no-deps', 'symlink_data'], 'cwd': '/home/wego/third_impact/build/limo_lidar', 'env': {'VSCODE_CWD': '/home/wego', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'AI_AGENT': 'claude-code_2-1-201_agent', 'USER': 'wego', 'SSH_CLIENT': '192.168.1.56 49676 22', 'CLAUDE_CODE_ENTRYPOINT': 'claude-vscode', 'VSCODE_NLS_CONFIG': '{"userLocale":"en","osLocale":"en","resolvedLanguage":"en","defaultMessagesFile":"/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/out/nls.messages.json","locale":"en","availableLanguages":{}}', 'GIT_EDITOR': 'true', 'VSCODE_HANDLES_UNCAUGHT_ERRORS': 'true', 'XDG_SESSION_TYPE': 'tty', 'CLAUDE_AGENT_SDK_VERSION': '0.3.201', 'SHLVL': '1', 'BROWSER': '/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/bin/helpers/browser.sh', 'MOTD_SHOWN': 'pam', 'HOME': '/home/wego', 'VSCODE_RECONNECTION_GRACE_TIME': '10800000', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-1b9a71bf-2aa9-4569-8309-9a2bce9f29e1.sock', 'CLAUDE_CODE_CHILD_SESSION': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'VSCODE_L10N_BUNDLE_LOCATION': '', 'LOGNAME': 'wego', 'VSCODE_HANDLES_SIGPIPE': 'true', '_': '/usr/bin/colcon', 'XDG_SESSION_CLASS': 'user', 'XDG_SESSION_ID': '4', 'VSCODE_CLI_REQUIRE_TOKEN': 'e6236c4c-d6e3-4172-9221-2a5fc42303d7', 'MCP_CONNECTION_NONBLOCKING': 'true', 'PATH': '/home/wego/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174f2fb180d0d758272d713/server/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'VSCODE_AGENT_FOLDER': '/home/wego/.vscode-server', 'COREPACK_ENABLE_AUTO_PIN': '0', 'XDG_RUNTIME_DIR': '/run/user/1000', 'CLAUDE_EFFORT': 'high', 'NoDefaultCurrentDirectoryInExePath': '1', 'LANG': 'en_US.UTF-8', 'SHELL': '/bin/bash', 'ELECTRON_RUN_AS_NODE': '1', 'CLAUDE_CODE_ENABLE_SDK_FILE_CHECKPOINTING': 'true', 'CLAUDE_CODE_SESSION_ID': '3c4a3337-2c7a-4198-b1dd-f209c6084206', 'CLAUDECODE': '1', 'PWD': '/home/wego/third_impact/build/limo_lidar', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.1.56 49676 192.168.1.51 22', 'CLAUDE_CODE_EXECPATH': '/home/wego/.vscode-server/extensions/anthropic.claude-code-2.1.201-linux-arm64/resources/native-binary/claude', 'CLAUDE_CODE_ENABLE_TASKS': '0', 'COLCON': '1', 'PYTHONPATH': '/home/wego/third_impact/build/limo_lidar/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wego/third_impact/install/limo_lidar/lib/python3.10/site-packages:'}, 'shell': False}
+[1.201574] (-) TimerEvent: {}
+[1.301954] (-) TimerEvent: {}
+[1.402330] (-) TimerEvent: {}
+[1.502753] (-) TimerEvent: {}
+[1.582899] (limo_lidar) StdoutLine: {'line': b'running develop\n'}
+[1.602904] (-) TimerEvent: {}
+[1.704146] (-) TimerEvent: {}
+[1.787577] (limo_lidar) StdoutLine: {'line': b'running egg_info\n'}
+[1.788014] (limo_lidar) StdoutLine: {'line': b'writing limo_lidar.egg-info/PKG-INFO\n'}
+[1.788355] (limo_lidar) StdoutLine: {'line': b'writing dependency_links to limo_lidar.egg-info/dependency_links.txt\n'}
+[1.788726] (limo_lidar) StdoutLine: {'line': b'writing entry points to limo_lidar.egg-info/entry_points.txt\n'}
+[1.789155] (limo_lidar) StdoutLine: {'line': b'writing requirements to limo_lidar.egg-info/requires.txt\n'}
+[1.789342] (limo_lidar) StdoutLine: {'line': b'writing top-level names to limo_lidar.egg-info/top_level.txt\n'}
+[1.793201] (limo_lidar) StdoutLine: {'line': b"reading manifest file 'limo_lidar.egg-info/SOURCES.txt'\n"}
+[1.794633] (limo_lidar) StdoutLine: {'line': b"writing manifest file 'limo_lidar.egg-info/SOURCES.txt'\n"}
+[1.797350] (limo_lidar) StdoutLine: {'line': b'running build_ext\n'}
+[1.797745] (limo_lidar) StdoutLine: {'line': b'Creating /home/wego/third_impact/install/limo_lidar/lib/python3.10/site-packages/limo-lidar.egg-link (link to .)\n'}
+[1.799904] (limo_lidar) StdoutLine: {'line': b'Installing lidar_parking script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar\n'}
+[1.800320] (limo_lidar) StdoutLine: {'line': b'Installing line_check script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar\n'}
+[1.800759] (limo_lidar) StdoutLine: {'line': b'Installing obstacle_avoid script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar\n'}
+[1.801093] (limo_lidar) StdoutLine: {'line': b'Installing parking script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar\n'}
+[1.801379] (limo_lidar) StdoutLine: {'line': b'Installing reset_steer script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar\n'}
+[1.801655] (limo_lidar) StdoutLine: {'line': b'Installing stop_and_go script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar\n'}
+[1.801928] (limo_lidar) StdoutLine: {'line': b'Installing stop_test script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar\n'}
+[1.802198] (limo_lidar) StdoutLine: {'line': b'Installing stop_test_2 script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar\n'}
+[1.802464] (limo_lidar) StdoutLine: {'line': b'Installing test script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar\n'}
+[1.802727] (limo_lidar) StdoutLine: {'line': b'Installing yellow_det script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar\n'}
+[1.803172] (limo_lidar) StdoutLine: {'line': b'\n'}
+[1.803354] (limo_lidar) StdoutLine: {'line': b'Installed /home/wego/third_impact/build/limo_lidar\n'}
+[1.803615] (limo_lidar) StdoutLine: {'line': b'running symlink_data\n'}
+[1.804196] (-) TimerEvent: {}
+[1.881495] (limo_lidar) CommandEnded: {'returncode': 0}
+[1.904361] (-) TimerEvent: {}
+[1.925992] (limo_lidar) JobEnded: {'identifier': 'limo_lidar', 'rc': 0}
+[1.928521] (-) EventReactorShutdown: {}
