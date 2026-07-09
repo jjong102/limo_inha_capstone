@@ -31,6 +31,10 @@ setup(
             'inference_StopAndGo_with_joy_node = jetracer_ros2.inference_stopandgo_with_joy_node:main',
             'inference_StopAndGo_with_lidar_node = jetracer_ros2.inference_stopandgo_with_lidar_node:main',
             'inference_people_estop_node = jetracer_ros2.inference_people_estop_node:main',
+            'mission_inference_node = jetracer_ros2.mission_inference_node:main',
+            'mission_manager_node = jetracer_ros2.mission_manager_node:main',
+            'mission_traffic_light_node = jetracer_ros2.mission_traffic_light_node:main',
+            'debug_mission_traffic_light_node = jetracer_ros2.debug_mission_traffic_light_node:main',
         ],
     },
 )

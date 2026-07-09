@@ -66,3 +66,44 @@ inference_people_estop_node:
     obstacle_distance_m: 1.0    # 이 거리보다 가까우면 장애물 후보로 카운트 [m]
     obstacle_min_points: 1      # 위 조건을 만족하는 포인트 최소 개수
     obstacle_stop_hold_sec: 3.0 # 감지되면 cmd_vel=0을 강제할 시간 [sec]
+
+
+mission_manager_node:
+  ros__parameters:
+    # mission_traffic_light_node가 'green'을 확정할 때까지는(미인식/빨간불 포함)
+    # inference/cmd_vel이 뭘 보내든 무조건 정지시킨다. green이 되는 순간부터 시간을
+    # 재서, phase_durations[i]초 동안 phase_speeds[i] 속도로 linear.x/angular.z를
+    # 같은 비율로 재조정해 실제 /cmd_vel에 내보낸다
+    # (학습 시 linear_x=1.0로 수집했으므로 그보다 빠르게는 못 감).
+    # green이 확정되면 mission_traffic_light_node를, 마지막 구간이 끝나면
+    # mission_inference_node를 각각 종료시킨다.
+    phase_speeds:    [1.0, 0.0, 0.0]  # 각 구간 속도 [m/s]
+    phase_durations: [3.6, 0.0, 0.0]  # 각 구간 지속 시간 [sec]
+    input_topic: 'inference/cmd_vel'
+    output_topic: '/cmd_vel'
+    traffic_light_topic: 'mission/traffic_light_state'
+
+
+mission_traffic_light_node:
+  ros__parameters:
+    # 카메라 이미지에서 신호등(핸드폰 화면)을 찾을 ROI. 기본값: 좌측 하단.
+    roi_x_start_ratio: 0.0
+    roi_x_end_ratio: 0.5
+    roi_y_start_ratio: 0.3
+    roi_y_end_ratio: 0.8
+
+    # HSV 색 범위 (OpenCV 기준: H 0~179, S/V 0~255).
+    # 빨강은 색상환 양 끝(0 근처 / 180 근처)에 걸쳐 있어서 두 구간이 필요하다.
+    # S/V 하한을 100→60으로 낮춤: 핸드폰 화면이 카메라 노출/각도 때문에
+    # 순수 채도만큼 안 나와서 100 기준으로는 원(circle) 대부분이 안 잡혔음.
+    red_low1:  [0, 60, 60]
+    red_high1: [10, 255, 255]
+    red_low2:  [170, 60, 60]
+    red_high2: [180, 255, 255]
+    green_low:  [40, 60, 60]
+    green_high: [90, 255, 255]
+
+    # 실측해보니 원이 ROI 전체에서 차지하는 비율이 2% 안팎이라, 기존 0.15(15%)는
+    # 너무 높아서 절대 안 넘어갔음. 실측치보다 여유 있게 낮춤.
+    min_pixel_ratio: 0.01  # ROI 내 이 비율 이상이어야 후보로 인정
+    hold_sec: 0.3           # 이 시간 연속 같은 색이 우세해야 확정 판정 (깜빡임 방지)

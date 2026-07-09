@@ -1,13 +1,10 @@
 Metadata-Version: 2.1
-Name: limo-lidar
+Name: limo_lidar
 Version: 0.0.0
 Summary: TODO: Package description
-Home-page: UNKNOWN
 Maintainer: wego
 Maintainer-email: wego@todo.todo
 License: TODO: License declaration
-Platform: UNKNOWN
+Requires-Dist: setuptools
 Provides-Extra: test
-
-UNKNOWN
-
+Requires-Dist: pytest; extra == "test"

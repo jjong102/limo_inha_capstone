@@ -29,11 +29,11 @@ setup(
             'parking=limo_lidar.parking:main',
             'test=limo_lidar.test:main',
             'reset_steer=limo_lidar.reset_steer:main',
-            'yellow_det=limo_lidar.yellow_det:main',
             'line_check=limo_lidar.line_check:main',
             'stop_test=limo_lidar.stop_test:main',
             'stop_test_2=limo_lidar.stop_test_2:main',
             'lidar_parking=limo_lidar.lidar_parking:main',
+            'lidar_parking_2 = limo_lidar.lidar_parking_2:main',
         ],
     },
 )
