@@ -8,6 +8,7 @@ that the inference_node can load.
 Usage:
     python onnx_to_trt.py --onnx_dir ./models --output_dir ~/jetracer_engines
     python onnx_to_trt.py --onnx_dir ./models --output_dir ~/jetracer_engines --section 3
+    python onnx_to_trt.py --onnx_dir ./models --output_dir ~/jetracer_engines --name go_stop
     python onnx_to_trt.py --onnx_dir ./models --output_dir ~/jetracer_engines --no_fp16
 """
 
@@ -71,6 +72,10 @@ def main():
                         help='Where to write section_N.engine files')
     parser.add_argument('--section', type=int, default=None,
                         help='Convert a single section (default: convert all found)')
+    parser.add_argument('--name', type=str, default=None,
+                        help='Convert a single arbitrary <name>.onnx file '
+                             '(e.g. --name go_stop -> go_stop.onnx -> go_stop.engine). '
+                             'Takes priority over --section.')
     parser.add_argument('--no_fp16', action='store_true',
                         help='Disable FP16 mode (use FP32)')
     parser.add_argument('--workspace_mb', type=int, default=256,
@@ -79,7 +84,9 @@ def main():
 
     os.makedirs(args.output_dir, exist_ok=True)
 
-    if args.section is not None:
+    if args.name is not None:
+        onnx_files = [os.path.join(args.onnx_dir, f'{args.name}.onnx')]
+    elif args.section is not None:
         onnx_files = [os.path.join(args.onnx_dir, f'section_{args.section}.onnx')]
     else:
         onnx_files = sorted(glob.glob(os.path.join(args.onnx_dir, 'section_*.onnx')))

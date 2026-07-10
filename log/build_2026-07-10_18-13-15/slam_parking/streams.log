@@ -1,0 +1,18 @@
+[4.324s] Invoking command in '/home/wego/third_impact/build/slam_parking': PYTHONPATH=/home/wego/third_impact/build/slam_parking/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wego/third_impact/install/slam_parking/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/wego/third_impact/build/slam_parking/build --no-deps symlink_data
+[5.596s] running develop
+[6.604s] running egg_info
+[6.742s] writing slam_parking.egg-info/PKG-INFO
+[6.745s] writing dependency_links to slam_parking.egg-info/dependency_links.txt
+[6.750s] writing entry points to slam_parking.egg-info/entry_points.txt
+[6.760s] writing requirements to slam_parking.egg-info/requires.txt
+[6.760s] writing top-level names to slam_parking.egg-info/top_level.txt
+[6.929s] reading manifest file 'slam_parking.egg-info/SOURCES.txt'
+[6.933s] writing manifest file 'slam_parking.egg-info/SOURCES.txt'
+[7.010s] running build_ext
+[7.011s] Creating /home/wego/third_impact/install/slam_parking/lib/python3.10/site-packages/slam-parking.egg-link (link to .)
+[7.015s] Installing parking_navigator_node script to /home/wego/third_impact/install/slam_parking/lib/slam_parking
+[7.017s] Installing parking_pose_recorder_node script to /home/wego/third_impact/install/slam_parking/lib/slam_parking
+[7.020s] 
+[7.020s] Installed /home/wego/third_impact/build/slam_parking
+[7.022s] running symlink_data
+[7.148s] Invoked command in '/home/wego/third_impact/build/slam_parking' returned '0': PYTHONPATH=/home/wego/third_impact/build/slam_parking/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wego/third_impact/install/slam_parking/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/wego/third_impact/build/slam_parking/build --no-deps symlink_data

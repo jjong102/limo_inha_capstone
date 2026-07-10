@@ -1,0 +1,33 @@
+[3.881s] Invoking command in '/home/wego/third_impact/build/limo_lidar': PYTHONPATH=/home/wego/third_impact/build/limo_lidar/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wego/third_impact/install/limo_lidar/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/wego/third_impact/build/limo_lidar/build --no-deps symlink_data
+[4.856s] running develop
+[5.510s] running egg_info
+[5.510s] creating limo_lidar.egg-info
+[5.567s] writing limo_lidar.egg-info/PKG-INFO
+[5.569s] writing dependency_links to limo_lidar.egg-info/dependency_links.txt
+[5.570s] writing entry points to limo_lidar.egg-info/entry_points.txt
+[5.571s] writing requirements to limo_lidar.egg-info/requires.txt
+[5.571s] writing top-level names to limo_lidar.egg-info/top_level.txt
+[5.572s] writing manifest file 'limo_lidar.egg-info/SOURCES.txt'
+[5.684s] reading manifest file 'limo_lidar.egg-info/SOURCES.txt'
+[5.686s] writing manifest file 'limo_lidar.egg-info/SOURCES.txt'
+[5.785s] running build_ext
+[5.786s] Creating /home/wego/third_impact/install/limo_lidar/lib/python3.10/site-packages/limo-lidar.egg-link (link to .)
+[5.788s] Installing lidar_parking script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar
+[5.793s] Installing lidar_parking_2 script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar
+[5.795s] Installing line_check script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar
+[5.796s] Installing obstacle_avoid script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar
+[5.796s] Installing parking script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar
+[5.796s] Installing reset_steer script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar
+[5.797s] Installing stop_and_go script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar
+[5.798s] Installing stop_test script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar
+[5.800s] Installing stop_test_2 script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar
+[5.800s] Installing test script to /home/wego/third_impact/install/limo_lidar/lib/limo_lidar
+[5.805s] 
+[5.805s] Installed /home/wego/third_impact/build/limo_lidar
+[5.805s] running symlink_data
+[5.805s] creating /home/wego/third_impact/install/limo_lidar/share/ament_index
+[5.806s] creating /home/wego/third_impact/install/limo_lidar/share/ament_index/resource_index
+[5.812s] creating /home/wego/third_impact/install/limo_lidar/share/ament_index/resource_index/packages
+[5.814s] symbolically linking /home/wego/third_impact/build/limo_lidar/resource/limo_lidar -> /home/wego/third_impact/install/limo_lidar/share/ament_index/resource_index/packages
+[5.814s] symbolically linking /home/wego/third_impact/build/limo_lidar/package.xml -> /home/wego/third_impact/install/limo_lidar/share/limo_lidar
+[6.014s] Invoked command in '/home/wego/third_impact/build/limo_lidar' returned '0': PYTHONPATH=/home/wego/third_impact/build/limo_lidar/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wego/third_impact/install/limo_lidar/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/wego/third_impact/build/limo_lidar/build --no-deps symlink_data

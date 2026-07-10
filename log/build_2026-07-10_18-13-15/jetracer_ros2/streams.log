@@ -1,0 +1,31 @@
+[4.166s] Invoking command in '/home/wego/third_impact/build/jetracer_ros2': PYTHONPATH=/home/wego/third_impact/build/jetracer_ros2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/wego/third_impact/build/jetracer_ros2/build --no-deps symlink_data
+[5.187s] running develop
+[6.249s] running egg_info
+[6.328s] writing jetracer_ros2.egg-info/PKG-INFO
+[6.331s] writing dependency_links to jetracer_ros2.egg-info/dependency_links.txt
+[6.333s] writing entry points to jetracer_ros2.egg-info/entry_points.txt
+[6.334s] writing requirements to jetracer_ros2.egg-info/requires.txt
+[6.336s] writing top-level names to jetracer_ros2.egg-info/top_level.txt
+[6.493s] reading manifest file 'jetracer_ros2.egg-info/SOURCES.txt'
+[6.499s] writing manifest file 'jetracer_ros2.egg-info/SOURCES.txt'
+[6.659s] running build_ext
+[6.660s] Creating /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer-ros2.egg-link (link to .)
+[6.664s] Installing data_collection_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[6.666s] Installing debug_mission_people_estop_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[6.667s] Installing debug_mission_traffic_light_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[6.668s] Installing inference_StopAndGo_with_joy_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[6.668s] Installing inference_StopAndGo_with_lidar_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[6.670s] Installing inference_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[6.672s] Installing inference_people_estop_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[6.673s] Installing mission_inference_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[6.683s] Installing mission_manager_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[6.684s] Installing mission_manager_pestop_test_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[6.685s] Installing mission_manager_tunnel_test_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[6.687s] Installing mission_people_estop_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[6.688s] Installing mission_traffic_light_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[6.688s] Installing mission_tunnel_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[6.690s] Installing mission_yellow_detect_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[6.691s] 
+[6.691s] Installed /home/wego/third_impact/build/jetracer_ros2
+[6.691s] running symlink_data
+[6.906s] Invoked command in '/home/wego/third_impact/build/jetracer_ros2' returned '0': PYTHONPATH=/home/wego/third_impact/build/jetracer_ros2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/wego/third_impact/build/jetracer_ros2/build --no-deps symlink_data
