@@ -29,11 +29,11 @@ PUBLISH_RATE_HZ = 20.0    # cmd_vel publish 주기
 
 STEPS = [
     # direction, steer_sign,   duration
-    ('REV',      -1,           5.3),
+    ('REV',      -1,           5.0),
     ('REV',      +1,           1.25),
-    ('FWD',      +1,           1.0),
+    ('FWD',      +1,           0.9),
     ('REV',      +1,           1.0),
-    ('FWD',      +1,           1.0),
+    ('FWD',      +1,           0.9),
     ('REV',      +1,           0.8),
     ('FWD',      +1,           0.8),
 ]

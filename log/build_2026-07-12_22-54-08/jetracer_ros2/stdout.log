@@ -1,0 +1,44 @@
+running develop
+running egg_info
+creating jetracer_ros2.egg-info
+writing jetracer_ros2.egg-info/PKG-INFO
+writing dependency_links to jetracer_ros2.egg-info/dependency_links.txt
+writing entry points to jetracer_ros2.egg-info/entry_points.txt
+writing requirements to jetracer_ros2.egg-info/requires.txt
+writing top-level names to jetracer_ros2.egg-info/top_level.txt
+writing manifest file 'jetracer_ros2.egg-info/SOURCES.txt'
+reading manifest file 'jetracer_ros2.egg-info/SOURCES.txt'
+writing manifest file 'jetracer_ros2.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer-ros2.egg-link (link to .)
+Installing data_collection_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+Installing debug_mission_people_estop_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+Installing debug_mission_traffic_light_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+Installing inference_StopAndGo_with_joy_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+Installing inference_StopAndGo_with_lidar_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+Installing inference_go_stop_2_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+Installing inference_go_stop_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+Installing inference_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+Installing inference_people_estop_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+Installing mission_inference_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+Installing mission_manager_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+Installing mission_manager_pestop_test_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+Installing mission_manager_track_following_test_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+Installing mission_manager_tunnel_test_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+Installing mission_parking_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+Installing mission_people_estop_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+Installing mission_track_following_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+Installing mission_traffic_light_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+Installing mission_tunnel_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+
+Installed /home/wego/third_impact/build/jetracer_ros2
+running symlink_data
+creating /home/wego/third_impact/install/jetracer_ros2/share/ament_index
+creating /home/wego/third_impact/install/jetracer_ros2/share/ament_index/resource_index
+creating /home/wego/third_impact/install/jetracer_ros2/share/ament_index/resource_index/packages
+symbolically linking /home/wego/third_impact/build/jetracer_ros2/resource/jetracer_ros2 -> /home/wego/third_impact/install/jetracer_ros2/share/ament_index/resource_index/packages
+symbolically linking /home/wego/third_impact/build/jetracer_ros2/package.xml -> /home/wego/third_impact/install/jetracer_ros2/share/jetracer_ros2
+creating /home/wego/third_impact/install/jetracer_ros2/share/jetracer_ros2/launch
+symbolically linking /home/wego/third_impact/build/jetracer_ros2/launch/all_in_node.launch.py -> /home/wego/third_impact/install/jetracer_ros2/share/jetracer_ros2/launch
+creating /home/wego/third_impact/install/jetracer_ros2/share/jetracer_ros2/params
+symbolically linking /home/wego/third_impact/build/jetracer_ros2/params/params.yaml -> /home/wego/third_impact/install/jetracer_ros2/share/jetracer_ros2/params

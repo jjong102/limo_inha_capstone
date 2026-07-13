@@ -1,0 +1,118 @@
+[1.661s] Invoking command in '/home/wego/third_impact/build/jetracer_ros2': PYTHONPATH=/home/wego/third_impact/build/jetracer_ros2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/wego/third_impact/build/jetracer_ros2/build
+[2.365s] running develop
+[2.759s] Removing /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer-ros2.egg-link (link to .)
+[2.869s] Invoked command in '/home/wego/third_impact/build/jetracer_ros2' returned '0': PYTHONPATH=/home/wego/third_impact/build/jetracer_ros2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/wego/third_impact/build/jetracer_ros2/build
+[2.870s] Invoking command in '/home/wego/third_impact/src/jetracer_ros2': PYTHONPATH=/home/wego/third_impact/build/jetracer_ros2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/jetracer_ros2 build --build-base /home/wego/third_impact/build/jetracer_ros2/build install --record /home/wego/third_impact/build/jetracer_ros2/install.log --single-version-externally-managed install_data --force
+[3.492s] running egg_info
+[3.494s] writing ../../build/jetracer_ros2/jetracer_ros2.egg-info/PKG-INFO
+[3.495s] writing dependency_links to ../../build/jetracer_ros2/jetracer_ros2.egg-info/dependency_links.txt
+[3.496s] writing entry points to ../../build/jetracer_ros2/jetracer_ros2.egg-info/entry_points.txt
+[3.496s] writing requirements to ../../build/jetracer_ros2/jetracer_ros2.egg-info/requires.txt
+[3.496s] writing top-level names to ../../build/jetracer_ros2/jetracer_ros2.egg-info/top_level.txt
+[3.505s] reading manifest file '../../build/jetracer_ros2/jetracer_ros2.egg-info/SOURCES.txt'
+[3.512s] writing manifest file '../../build/jetracer_ros2/jetracer_ros2.egg-info/SOURCES.txt'
+[3.512s] running build
+[3.512s] running build_py
+[3.514s] creating /home/wego/third_impact/build/jetracer_ros2/build
+[3.514s] creating /home/wego/third_impact/build/jetracer_ros2/build/lib
+[3.514s] creating /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2
+[3.514s] copying jetracer_ros2/inference_stopandgo_with_lidar_node.py -> /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2
+[3.516s] copying jetracer_ros2/mission_track_following_node.py -> /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2
+[3.517s] copying jetracer_ros2/mission_manager_track_following_test_node.py -> /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2
+[3.517s] copying jetracer_ros2/inference_node.py -> /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2
+[3.517s] copying jetracer_ros2/mission_manager_pestop_test_node.py -> /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2
+[3.518s] copying jetracer_ros2/inference_go_stop_2_node.py -> /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2
+[3.518s] copying jetracer_ros2/__init__.py -> /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2
+[3.519s] copying jetracer_ros2/mission_people_estop_node.py -> /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2
+[3.520s] copying jetracer_ros2/mission_manager_node.py -> /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2
+[3.520s] copying jetracer_ros2/mission_manager_tunnel_test_node.py -> /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2
+[3.521s] copying jetracer_ros2/mission_tunnel_node.py -> /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2
+[3.521s] copying jetracer_ros2/inference_people_estop_node.py -> /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2
+[3.521s] copying jetracer_ros2/debug_mission_people_estop_node.py -> /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2
+[3.522s] copying jetracer_ros2/mission_inference_node.py -> /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2
+[3.522s] copying jetracer_ros2/debug_mission_traffic_light_node.py -> /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2
+[3.522s] copying jetracer_ros2/inference_stopandgo_with_joy_node.py -> /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2
+[3.523s] copying jetracer_ros2/data_collection_node.py -> /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2
+[3.523s] copying jetracer_ros2/mission_parking_node.py -> /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2
+[3.523s] copying jetracer_ros2/mission_traffic_light_node.py -> /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2
+[3.524s] copying jetracer_ros2/inference_go_stop_node.py -> /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2
+[3.524s] creating /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/utils
+[3.525s] copying jetracer_ros2/utils/__init__.py -> /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/utils
+[3.525s] copying jetracer_ros2/utils/ackermann_utils.py -> /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/utils
+[3.526s] running install
+[3.527s] running install_lib
+[3.532s] creating /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2
+[3.534s] copying /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/inference_stopandgo_with_lidar_node.py -> /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2
+[3.535s] copying /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/mission_track_following_node.py -> /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2
+[3.536s] copying /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/mission_manager_track_following_test_node.py -> /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2
+[3.536s] copying /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/inference_node.py -> /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2
+[3.536s] copying /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/mission_manager_pestop_test_node.py -> /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2
+[3.536s] copying /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/inference_go_stop_2_node.py -> /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2
+[3.536s] copying /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/__init__.py -> /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2
+[3.536s] copying /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/mission_people_estop_node.py -> /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2
+[3.536s] copying /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/mission_manager_node.py -> /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2
+[3.541s] creating /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/utils
+[3.541s] copying /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/utils/__init__.py -> /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/utils
+[3.542s] copying /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/utils/ackermann_utils.py -> /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/utils
+[3.542s] copying /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/mission_manager_tunnel_test_node.py -> /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2
+[3.542s] copying /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/mission_tunnel_node.py -> /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2
+[3.542s] copying /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/inference_people_estop_node.py -> /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2
+[3.542s] copying /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/debug_mission_people_estop_node.py -> /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2
+[3.542s] copying /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/mission_inference_node.py -> /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2
+[3.543s] copying /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/debug_mission_traffic_light_node.py -> /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2
+[3.543s] copying /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/inference_stopandgo_with_joy_node.py -> /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2
+[3.543s] copying /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/data_collection_node.py -> /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2
+[3.543s] copying /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/mission_parking_node.py -> /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2
+[3.543s] copying /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/mission_traffic_light_node.py -> /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2
+[3.543s] copying /home/wego/third_impact/build/jetracer_ros2/build/lib/jetracer_ros2/inference_go_stop_node.py -> /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2
+[3.547s] byte-compiling /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/inference_stopandgo_with_lidar_node.py to inference_stopandgo_with_lidar_node.cpython-310.pyc
+[3.547s] byte-compiling /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/mission_track_following_node.py to mission_track_following_node.cpython-310.pyc
+[3.548s] byte-compiling /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/mission_manager_track_following_test_node.py to mission_manager_track_following_test_node.cpython-310.pyc
+[3.551s] byte-compiling /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/inference_node.py to inference_node.cpython-310.pyc
+[3.555s] byte-compiling /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/mission_manager_pestop_test_node.py to mission_manager_pestop_test_node.cpython-310.pyc
+[3.557s] byte-compiling /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/inference_go_stop_2_node.py to inference_go_stop_2_node.cpython-310.pyc
+[3.561s] byte-compiling /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/__init__.py to __init__.cpython-310.pyc
+[3.561s] byte-compiling /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/mission_people_estop_node.py to mission_people_estop_node.cpython-310.pyc
+[3.562s] byte-compiling /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/mission_manager_node.py to mission_manager_node.cpython-310.pyc
+[3.566s] byte-compiling /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/utils/__init__.py to __init__.cpython-310.pyc
+[3.567s] byte-compiling /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/utils/ackermann_utils.py to ackermann_utils.cpython-310.pyc
+[3.567s] byte-compiling /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/mission_manager_tunnel_test_node.py to mission_manager_tunnel_test_node.cpython-310.pyc
+[3.569s] byte-compiling /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/mission_tunnel_node.py to mission_tunnel_node.cpython-310.pyc
+[3.570s] byte-compiling /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/inference_people_estop_node.py to inference_people_estop_node.cpython-310.pyc
+[3.571s] byte-compiling /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/debug_mission_people_estop_node.py to debug_mission_people_estop_node.cpython-310.pyc
+[3.572s] byte-compiling /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/mission_inference_node.py to mission_inference_node.cpython-310.pyc
+[3.573s] byte-compiling /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/debug_mission_traffic_light_node.py to debug_mission_traffic_light_node.cpython-310.pyc
+[3.574s] byte-compiling /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/inference_stopandgo_with_joy_node.py to inference_stopandgo_with_joy_node.cpython-310.pyc
+[3.577s] byte-compiling /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/data_collection_node.py to data_collection_node.cpython-310.pyc
+[3.580s] byte-compiling /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/mission_parking_node.py to mission_parking_node.cpython-310.pyc
+[3.586s] byte-compiling /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/mission_traffic_light_node.py to mission_traffic_light_node.cpython-310.pyc
+[3.588s] byte-compiling /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2/inference_go_stop_node.py to inference_go_stop_node.cpython-310.pyc
+[3.594s] running install_data
+[3.595s] copying resource/jetracer_ros2 -> /home/wego/third_impact/install/jetracer_ros2/share/ament_index/resource_index/packages
+[3.595s] copying package.xml -> /home/wego/third_impact/install/jetracer_ros2/share/jetracer_ros2
+[3.595s] copying launch/all_in_node.launch.py -> /home/wego/third_impact/install/jetracer_ros2/share/jetracer_ros2/launch
+[3.595s] copying params/params.yaml -> /home/wego/third_impact/install/jetracer_ros2/share/jetracer_ros2/params
+[3.595s] running install_egg_info
+[3.601s] Copying ../../build/jetracer_ros2/jetracer_ros2.egg-info to /home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages/jetracer_ros2-0.0.0-py3.10.egg-info
+[3.603s] running install_scripts
+[3.664s] Installing data_collection_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[3.665s] Installing debug_mission_people_estop_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[3.665s] Installing debug_mission_traffic_light_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[3.665s] Installing inference_StopAndGo_with_joy_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[3.665s] Installing inference_StopAndGo_with_lidar_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[3.665s] Installing inference_go_stop_2_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[3.665s] Installing inference_go_stop_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[3.668s] Installing inference_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[3.668s] Installing inference_people_estop_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[3.668s] Installing mission_inference_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[3.668s] Installing mission_manager_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[3.668s] Installing mission_manager_pestop_test_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[3.668s] Installing mission_manager_track_following_test_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[3.668s] Installing mission_manager_tunnel_test_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[3.670s] Installing mission_parking_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[3.670s] Installing mission_people_estop_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[3.670s] Installing mission_track_following_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[3.670s] Installing mission_traffic_light_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[3.670s] Installing mission_tunnel_node script to /home/wego/third_impact/install/jetracer_ros2/lib/jetracer_ros2
+[3.671s] writing list of installed files to '/home/wego/third_impact/build/jetracer_ros2/install.log'
+[3.751s] Invoked command in '/home/wego/third_impact/src/jetracer_ros2' returned '0': PYTHONPATH=/home/wego/third_impact/build/jetracer_ros2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wego/third_impact/install/jetracer_ros2/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/jetracer_ros2 build --build-base /home/wego/third_impact/build/jetracer_ros2/build install --record /home/wego/third_impact/build/jetracer_ros2/install.log --single-version-externally-managed install_data --force
