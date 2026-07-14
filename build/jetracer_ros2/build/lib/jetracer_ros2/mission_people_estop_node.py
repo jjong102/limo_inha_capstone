@@ -16,10 +16,16 @@ from std_msgs.msg import String
 # /cmd_vel엔 mission_manager 계열 노드 하나만 발행해야 경쟁 문제가 안 생기기 때문).
 #
 # 흐름:
-#   1. 노드가 뜨면 1초 뒤 'clear'를 한 번 발행 — manager가 이걸 "센서 켜짐" 신호로
-#      보고 그때부터 주행을 시작한다.
+#   1. 노드가 뜨면 0.5초 간격으로 'clear'를 총 4번 발행 — manager가 이걸 "센서 켜짐"
+#      신호로 보고 그때부터 주행을 시작한다. 한 번만 보내면 DDS discovery가 아직 안
+#      끝난 순간과 겹쳤을 때 그 유일한 메시지가 유실돼서 manager가 영원히 대기
+#      상태에 갇히는 문제가 있었다(실측으로 확인) — 여러 번 보내면 그중 하나라도
+#      discovery 완료 이후에 도착할 확률이 훨씬 높아져서 이 레이스를 사실상 없앤다.
 #   2. obstacle_min_time초 동안은 라이다를 무시한다 (막 시작했을 때 근처 물체로
-#      바로 오탐하지 않도록).
+#      바로 오탐하지 않도록). 정확히 obstacle_min_time초가 되는 순간 'active'를
+#      한 번 발행한다 — manager는 이 신호를 받고서야(자기 타이머를 따로 재지 않고)
+#      선제 감속을 시작하므로, "라이다 활성화"와 "감속 시작"이 오차 없이 정확히
+#      같은 순간에 일어난다.
 #   3. 그 이후 check_rate_hz(기본 1Hz)마다 전방을 0도로 뒀을 때
 #      obstacle_angle_deg_range=[min, max] 범위 안에서 obstacle_distance_m보다
 #      가까운 포인트가 obstacle_min_points개 이상인지 판단한다.
@@ -29,6 +35,9 @@ from std_msgs.msg import String
 #
 # 사용법:
 #   ros2 run jetracer_ros2 mission_people_estop_node
+
+_ANNOUNCE_INTERVAL_SEC = 0.5
+_ANNOUNCE_COUNT = 4
 
 
 class MissionPeopleEstopNode(Node):
@@ -54,6 +63,7 @@ class MissionPeopleEstopNode(Node):
         self._latest_scan = None
         self._was_obstacle = False  # 장애물이 한 번이라도 감지된 적 있는지 (종료 조건용)
         self.done = False  # True가 되면 main()의 spin 루프가 알아서 멈춘다
+        self._announce_count = 0
 
         self.state_pub = self.create_publisher(String, 'mission/people_estop_state', 10)
         # 라이다 드라이버는 보통 BEST_EFFORT로 발행하므로 반드시 sensor_data QoS로 구독해야 한다.
@@ -61,8 +71,12 @@ class MissionPeopleEstopNode(Node):
             LaserScan, '/scan', self._on_scan_msg, qos_profile_sensor_data)
 
         # 생성자에서 바로 발행하면 manager와의 DDS discovery가 아직 안 끝나 유실될 수
-        # 있어서, 짧게 지연 후 한 번 발행한다.
-        self._ready_timer = self.create_timer(1.0, self._announce_ready)
+        # 있어서, 짧게 지연 후 여러 번 발행한다 (위 흐름 1번 참고).
+        self._ready_timer = self.create_timer(_ANNOUNCE_INTERVAL_SEC, self._announce_ready)
+        # obstacle_min_time초 뒤 정확히 한 번 'active' 발행 (위 흐름 2번 참고). 이 시점엔
+        # 이미 announce가 여러 번 성공했을 시간이 충분해서(초 단위 차이) discovery race
+        # 걱정 없이 단발성으로 보내도 안전하다.
+        self._activate_timer = self.create_timer(self.obstacle_min_time, self._on_activate)
         self._check_timer = self.create_timer(1.0 / check_rate_hz, self._check_tick)
 
         self.get_logger().info(
@@ -74,9 +88,16 @@ class MissionPeopleEstopNode(Node):
         self._latest_scan = msg
 
     def _announce_ready(self):
-        self._ready_timer.cancel()
         self.state_pub.publish(String(data='clear'))
-        self.get_logger().info('센서 켜짐 신호(clear) 발행')
+        self._announce_count += 1
+        self.get_logger().info(f'센서 켜짐 신호(clear) 발행 ({self._announce_count}/{_ANNOUNCE_COUNT})')
+        if self._announce_count >= _ANNOUNCE_COUNT:
+            self._ready_timer.cancel()
+
+    def _on_activate(self):
+        self._activate_timer.cancel()
+        self.state_pub.publish(String(data='active'))
+        self.get_logger().info(f'{self.obstacle_min_time}초 경과 — 라이다 활성화(active) 발행')
 
     def _count_obstacle_points(self, msg: LaserScan) -> int:
         count = 0

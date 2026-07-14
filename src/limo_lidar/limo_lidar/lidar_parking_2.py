@@ -29,8 +29,9 @@ PUBLISH_RATE_HZ = 20.0    # cmd_vel publish 주기
 
 STEPS = [
     # direction, steer_sign,   duration
-    ('REV',      -1,           5.0),
+('REV',      -1,           4.8),
     ('REV',      +1,           1.25),
+    ('REV',      0,           0.4),
     ('FWD',      +1,           0.9),
     ('REV',      +1,           1.0),
     ('FWD',      +1,           0.9),
@@ -74,7 +75,7 @@ class WallFollowAndPark(Node):
         self.SCAN_MAX_DEG = self.FRONT_ANGLE
 
         # --- 주행 ---
-        self.CRUISE_SPEED = 0.5
+        self.CRUISE_SPEED = 0.3
         self.MAX_STEER = 0.42
         # ==================
 

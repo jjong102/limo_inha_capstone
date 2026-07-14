@@ -21,19 +21,32 @@ from std_msgs.msg import Bool, Float32, String
 #                           green 확정 시 traffic_light_node 종료, people_estop_node 시작.
 #   2) WAIT_ESTOP_READY   — people_estop_node가 뜨고 첫 신호(clear=센서 켜짐)를 보낼
 #                           때까지 정지 대기.
-#   3) PEOPLE_ESTOP       — cruise_speed로 주행. people_estop_slow_after_sec 지나면
-#                           people_estop_slow_speed로 선제 감속. 'stop' 오면 즉시 정지,
-#                           그 뒤 최종 'clear'(=people_estop_node 자체 종료 신호) 오면
-#                           people_estop_node 종료 + tunnel_node 시작, cruise_speed로 복귀.
+#   3) PEOPLE_ESTOP       — cruise_speed로 주행. people_estop_node가 obstacle_min_time초
+#                           경과 시점에 'active'를 발행하면 그 즉시 people_estop_slow_speed로
+#                           선제 감속(라이다 활성화와 감속이 같은 사건으로 완전히 동기화됨 —
+#                           manager가 따로 자기 타이머를 재는 게 아니라 센서 쪽 타이머 하나만
+#                           신뢰의 원천으로 씀). 'stop' 오면 즉시 정지, 그 뒤 최종
+#                           'clear'(=people_estop_node 자체 종료 신호) 오면 people_estop_node
+#                           종료 + tunnel_node 시작, cruise_speed로 복귀.
 #   4) TUNNEL             — cruise_speed로 주행하며 조도 관찰. threshold 이하로 떨어지면
-#                           (1회성) tunnel_node 종료, track_following_node 시작,
-#                           tunnel_slow_duration_sec 동안 tunnel_slow_speed로 감속
+#                           (1회성) tunnel_node 즉시 종료 후 cruise_speed 유지한 채
+#                           tunnel_slow_delay_sec만큼 대기. 그 뒤 track_following_node
+#                           시작 + tunnel_slow_speed로 감속, 그 시점부터
+#                           tunnel_slow_duration_sec 카운트 시작
 #                           + track_following_state로 게이팅(stop=정지/clear=주행).
+#                           clear로 바뀌어도 즉시 재출발하지 않고 track_resume_delay_sec만큼
+#                           대기 후 재출발(트럭이 stop 임계값 근처에서 흔들릴 때 덜컹거림 방지).
 #   5) TRACK_WINDOW       — 위 감속+게이팅 창. tunnel_slow_duration_sec 지나면
 #                           track_following_node 종료, cruise_speed로 복귀.
-#   6) PARKING_WAIT       — cruise_speed로 주행하며 /parking_start(Bool) 대기.
-#                           True 수신 시(1회성) mission_inference_node 종료,
-#                           mission_parking_node 시작.
+#   6) PARKING_WAIT       — 이 단계 진입과 동시에 mission_parking_node를 미리
+#                           띄운다(warm standby). 이 노드는 /scan 구독과 프로세스
+#                           기동을 미리 끝내두기만 하고 실제 주행은 시작하지 않은
+#                           채 자기 자신도 /parking_start를 구독해서 대기한다.
+#                           cruise_speed로 주행하며 /parking_start(Bool) 대기.
+#                           True 수신 시(1회성) mission_inference_node만 종료
+#                           (mission_parking_node는 이미 떠 있으므로 새로 안 띄움 —
+#                           프로세스 기동/DDS discovery 지연으로 인한 /cmd_vel
+#                           공백·순간정지를 없애기 위함).
 #   7) PARKING_ACTIVE     — mission_parking_node가 /cmd_vel을 직접 발행하므로 이
 #                           노드는 더 이상 아무것도 publish하지 않는다(경쟁 방지).
 #
@@ -66,11 +79,15 @@ class MissionManagerNode(Node):
         self.declare_parameter('parking_start_topic', '/parking_start')
 
         self.declare_parameter('cruise_speed', 1.0)               # 기본 순항 속도 [m/s]
-        self.declare_parameter('people_estop_slow_after_sec', 7.0)  # 주행 시작 후 이 시간 지나면 선제 감속
+        # 선제 감속 시점(몇 초 뒤)은 여기서 따로 관리하지 않는다 — people_estop_node의
+        # obstacle_min_time과 어긋나면 안 되므로, 그 노드가 obstacle_min_time초 뒤
+        # 'active'를 발행하는 순간을 그대로 신뢰해서 감속한다(아래 people_estop_callback 참고).
         self.declare_parameter('people_estop_slow_speed', 0.5)      # 선제 감속 목표 속도 [m/s]
         self.declare_parameter('tunnel_brightness_threshold', 75.0)  # 이 이하로 떨어지면 터널 진입
+        self.declare_parameter('tunnel_slow_delay_sec', 2.0)         # 조도 감지 후 감속 시작까지 대기 시간 [sec]
         self.declare_parameter('tunnel_slow_speed', 0.5)             # 터널/트럭 추종 구간 속도 [m/s]
-        self.declare_parameter('tunnel_slow_duration_sec', 30.0)     # 터널 감속 + track_following 유지 시간 [sec]
+        self.declare_parameter('tunnel_slow_duration_sec', 30.0)     # 감속 시작 후 track_following 유지 시간 [sec]
+        self.declare_parameter('track_resume_delay_sec', 1.0)        # 트럭 회피 해제(clear) 후 재출발까지 대기 시간 [sec]
 
         input_topic = self.get_parameter('input_topic').value
         output_topic = self.get_parameter('output_topic').value
@@ -81,19 +98,22 @@ class MissionManagerNode(Node):
         parking_start_topic = self.get_parameter('parking_start_topic').value
 
         self.cruise_speed = self.get_parameter('cruise_speed').value
-        self.people_estop_slow_after_sec = self.get_parameter('people_estop_slow_after_sec').value
         self.people_estop_slow_speed = self.get_parameter('people_estop_slow_speed').value
         self.tunnel_brightness_threshold = self.get_parameter('tunnel_brightness_threshold').value
+        self.tunnel_slow_delay_sec = self.get_parameter('tunnel_slow_delay_sec').value
         self.tunnel_slow_speed = self.get_parameter('tunnel_slow_speed').value
         self.tunnel_slow_duration_sec = self.get_parameter('tunnel_slow_duration_sec').value
+        self.track_resume_delay_sec = self.get_parameter('track_resume_delay_sec').value
 
         self._phase = PHASE_WAIT_LIGHT
         self._people_estop_blocked = False
         self._people_estop_slow = False
-        self._people_estop_slow_timer = None
+        self._people_estop_saw_stop = False
         self._tunnel_triggered = False
+        self._tunnel_slow_delay_timer = None
         self._track_blocked = False
         self._track_window_timer = None
+        self._track_resume_timer = None
         self._parking_triggered = False
 
         self.cmd_pub = self.create_publisher(Twist, output_topic, 10)
@@ -134,41 +154,49 @@ class MissionManagerNode(Node):
 
     def people_estop_callback(self, msg: String):
         if self._phase == PHASE_WAIT_ESTOP_READY:
-            # 첫 메시지 = mission_people_estop_node가 막 켜졌다는 신호(센서 켜짐).
+            if msg.data != 'clear':
+                return
+            # 첫 'clear' = mission_people_estop_node가 막 켜졌다는 신호(센서 켜짐).
             self._phase = PHASE_PEOPLE_ESTOP
             self.get_logger().info('mission_people_estop_node 켜짐 감지 — 주행 시작')
-            self._people_estop_slow_timer = self.create_timer(
-                self.people_estop_slow_after_sec, self._enter_people_estop_slow)
             return
 
         if self._phase != PHASE_PEOPLE_ESTOP:
             return
 
+        if msg.data == 'active':
+            # people_estop_node가 obstacle_min_time초 경과 시점에 발행하는 신호.
+            # manager가 따로 타이머를 재지 않고 이 신호 하나만 신뢰해서 감속하므로,
+            # "라이다 활성화"와 "감속 시작"이 오차 없이 같은 순간에 일어난다.
+            if not self._people_estop_slow:
+                self._people_estop_slow = True
+                self.get_logger().info(
+                    f'라이다 활성화(active) 수신 — {self.people_estop_slow_speed}m/s로 감속')
+            return
+
         if msg.data == 'stop':
+            self._people_estop_saw_stop = True
             if not self._people_estop_blocked:
                 self._people_estop_blocked = True
                 self.get_logger().warn('사람 감지 — 정지')
+            return
+
+        # mission_people_estop_node는 시작 시 'clear'를 여러 번 반복 발행한다(DDS
+        # discovery race 방지용 — 켜짐 알림 참고). 'stop'을 한 번도 본 적 없는데
+        # 온 'clear'는 진짜 장애물 해소가 아니라 그 반복 알림 중 하나이므로 무시한다.
+        if not self._people_estop_saw_stop:
             return
 
         # 'clear': 장애물이 있었다가 해소됨 -> people_estop_node 자체가 종료된다는 신호.
         self.get_logger().info(
             '장애물 해소 — mission_people_estop_node 종료, mission_tunnel_node 시작, '
             f'{self.cruise_speed}m/s로 복귀')
-        if self._people_estop_slow_timer is not None:
-            self._people_estop_slow_timer.cancel()
-            self._people_estop_slow_timer = None
         self._people_estop_blocked = False
         self._people_estop_slow = False
+        self._people_estop_saw_stop = False
         self._kill_process('mission_people_estop_node')
         self._start_process('mission_tunnel_node')
         self._phase = PHASE_TUNNEL
-
-    def _enter_people_estop_slow(self):
-        self._people_estop_slow_timer.cancel()
-        self._people_estop_slow_timer = None
-        self._people_estop_slow = True
-        self.get_logger().info(
-            f'{self.people_estop_slow_after_sec}초 경과 — {self.people_estop_slow_speed}m/s로 감속')
 
     # ------------------------------------------------------------------ #
     # 4)/5) 터널(조도) + 트럭 추종
@@ -183,9 +211,18 @@ class MissionManagerNode(Node):
         self._tunnel_triggered = True
         self.get_logger().info(
             f'조도 {msg.data:.1f} <= {self.tunnel_brightness_threshold} 감지 — '
-            f'mission_tunnel_node 종료, mission_track_following_node 시작, '
-            f'{self.tunnel_slow_duration_sec}초 동안 {self.tunnel_slow_speed}m/s')
+            f'mission_tunnel_node 종료, {self.tunnel_slow_delay_sec}초 뒤 '
+            f'mission_track_following_node 시작 + {self.tunnel_slow_speed}m/s 감속')
         self._kill_process('mission_tunnel_node')
+        self._tunnel_slow_delay_timer = self.create_timer(
+            self.tunnel_slow_delay_sec, self._start_track_window)
+
+    def _start_track_window(self):
+        self._tunnel_slow_delay_timer.cancel()
+        self._tunnel_slow_delay_timer = None
+        self.get_logger().info(
+            f'mission_track_following_node 시작, '
+            f'{self.tunnel_slow_duration_sec}초 동안 {self.tunnel_slow_speed}m/s')
         self._start_process('mission_track_following_node')
         self._track_blocked = False
         self._phase = PHASE_TRACK_WINDOW
@@ -195,15 +232,40 @@ class MissionManagerNode(Node):
     def track_following_callback(self, msg: String):
         if self._phase != PHASE_TRACK_WINDOW:
             return
-        self._track_blocked = (msg.data == 'stop')
+
+        if msg.data == 'stop':
+            # 트럭이 다시 가까워지면 대기 중이던 재출발 타이머부터 취소하고 즉시 정지.
+            if self._track_resume_timer is not None:
+                self._track_resume_timer.cancel()
+                self._track_resume_timer = None
+            self._track_blocked = True
+            return
+
+        # msg.data == 'clear': 이미 안 막혀있거나 재출발 타이머가 이미 돌고 있으면 무시
+        # (트럭 노드는 매 스캔마다 발행하므로 clear가 연속으로 여러 번 들어온다).
+        if not self._track_blocked or self._track_resume_timer is not None:
+            return
+        self._track_resume_timer = self.create_timer(
+            self.track_resume_delay_sec, self._resume_after_track_clear)
+
+    def _resume_after_track_clear(self):
+        self._track_resume_timer.cancel()
+        self._track_resume_timer = None
+        self._track_blocked = False
+        self.get_logger().info(
+            f'트럭 회피 해제 — {self.track_resume_delay_sec}초 대기 후 재출발')
 
     def _end_track_window(self):
         self._track_window_timer.cancel()
         self._track_window_timer = None
+        if self._track_resume_timer is not None:
+            self._track_resume_timer.cancel()
+            self._track_resume_timer = None
         self.get_logger().info(
             f'{self.tunnel_slow_duration_sec}초 경과 — mission_track_following_node 종료, '
-            f'{self.cruise_speed}m/s로 복귀')
+            f'{self.cruise_speed}m/s로 복귀, mission_parking_node warm standby 시작')
         self._kill_process('mission_track_following_node')
+        self._start_process('mission_parking_node')
         self._phase = PHASE_PARKING_WAIT
 
     # ------------------------------------------------------------------ #
@@ -211,13 +273,13 @@ class MissionManagerNode(Node):
     # ------------------------------------------------------------------ #
 
     def parking_start_callback(self, msg: Bool):
-        if self._parking_triggered or not msg.data:
+        if self._phase != PHASE_PARKING_WAIT or self._parking_triggered or not msg.data:
             return
         self._parking_triggered = True
         self.get_logger().info(
-            'parking_start 수신 — mission_inference_node 종료, mission_parking_node 시작')
+            'parking_start 수신 — mission_inference_node 종료 '
+            '(mission_parking_node는 warm standby 상태였다가 이 신호로 직접 활성화됨)')
         self._kill_process('mission_inference_node')
-        self._start_process('mission_parking_node')
         self._phase = PHASE_PARKING_ACTIVE
 
     # ------------------------------------------------------------------ #
