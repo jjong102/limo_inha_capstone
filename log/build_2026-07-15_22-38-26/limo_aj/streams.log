@@ -1,0 +1,29 @@
+[3.719s] Invoking command in '/home/wego/third_impact/build/limo_aj': PYTHONPATH=/home/wego/third_impact/build/limo_aj/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wego/third_impact/install/limo_aj/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/wego/third_impact/build/limo_aj/build --no-deps symlink_data
+[4.583s] running develop
+[5.173s] running egg_info
+[5.174s] creating limo_aj.egg-info
+[5.220s] writing limo_aj.egg-info/PKG-INFO
+[5.221s] writing dependency_links to limo_aj.egg-info/dependency_links.txt
+[5.221s] writing entry points to limo_aj.egg-info/entry_points.txt
+[5.222s] writing requirements to limo_aj.egg-info/requires.txt
+[5.222s] writing top-level names to limo_aj.egg-info/top_level.txt
+[5.222s] writing manifest file 'limo_aj.egg-info/SOURCES.txt'
+[5.313s] reading manifest file 'limo_aj.egg-info/SOURCES.txt'
+[5.315s] writing manifest file 'limo_aj.egg-info/SOURCES.txt'
+[5.366s] running build_ext
+[5.366s] Creating /home/wego/third_impact/install/limo_aj/lib/python3.10/site-packages/limo-aj.egg-link (link to .)
+[5.368s] Installing cone_check_node script to /home/wego/third_impact/install/limo_aj/lib/limo_aj
+[5.369s] Installing cone_node script to /home/wego/third_impact/install/limo_aj/lib/limo_aj
+[5.369s] Installing lidar_angle_node script to /home/wego/third_impact/install/limo_aj/lib/limo_aj
+[5.370s] Installing lidar_check_node script to /home/wego/third_impact/install/limo_aj/lib/limo_aj
+[5.370s] Installing steering_test_node script to /home/wego/third_impact/install/limo_aj/lib/limo_aj
+[5.376s] Installing traffic_node script to /home/wego/third_impact/install/limo_aj/lib/limo_aj
+[5.376s] 
+[5.376s] Installed /home/wego/third_impact/build/limo_aj
+[5.376s] running symlink_data
+[5.376s] creating /home/wego/third_impact/install/limo_aj/share/ament_index
+[5.376s] creating /home/wego/third_impact/install/limo_aj/share/ament_index/resource_index
+[5.376s] creating /home/wego/third_impact/install/limo_aj/share/ament_index/resource_index/packages
+[5.377s] symbolically linking /home/wego/third_impact/build/limo_aj/resource/limo_aj -> /home/wego/third_impact/install/limo_aj/share/ament_index/resource_index/packages
+[5.377s] symbolically linking /home/wego/third_impact/build/limo_aj/package.xml -> /home/wego/third_impact/install/limo_aj/share/limo_aj
+[5.502s] Invoked command in '/home/wego/third_impact/build/limo_aj' returned '0': PYTHONPATH=/home/wego/third_impact/build/limo_aj/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wego/third_impact/install/limo_aj/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/wego/third_impact/build/limo_aj/build --no-deps symlink_data

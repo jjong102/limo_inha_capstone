@@ -123,15 +123,16 @@ mission_tunnel_node:
 
 mission_people_estop_node:
   ros__parameters:
-    # 노드 시작 후 obstacle_min_time초 동안은 라이다를 무시한다. 그 이후 check_rate_hz
-    # 주기마다 전방을 0도로 뒀을 때 [min, max] 범위(음수=오른쪽, 양수=왼쪽, LaserScan
-    # 각도 관례) 안에서 obstacle_distance_m보다 가까운 포인트가 obstacle_min_points개
-    # 이상이면 장애물로 판단해 mission/people_estop_state에 'stop'을 발행한다.
+    # /cmd_vel이 처음 0이 아니게 되는 순간(=실제 출발) 이후 obstacle_min_time초 동안은
+    # 라이다를 무시한다. 그 이후 check_rate_hz 주기마다 전방을 0도로 뒀을 때 [min, max]
+    # 범위(음수=오른쪽, 양수=왼쪽, LaserScan 각도 관례) 안에서 obstacle_distance_m보다
+    # 가까운 포인트가 obstacle_min_points개 이상이면 장애물로 판단해
+    # mission/people_estop_state에 'stop'을 발행한다.
     # 장애물이 있었다가 사라지면 'clear'를 발행하고 노드가 종료된다.
     obstacle_angle_deg_range: [-5.0, 15.0]  # 전방 기준 검사 각도 범위 [deg] 왼쪽이 +
     obstacle_distance_m: 1.0    # 이 거리보다 가까우면 장애물 후보로 카운트 [m]
     obstacle_min_points: 1      # 위 조건을 만족하는 포인트 최소 개수
-    obstacle_min_time: 8.0    # 노드 시작 후 이 시간(초) 전에는 라이다 무시
+    obstacle_min_time: 7.0    # 출발(cmd_vel nonzero) 후 이 시간(초) 전에는 라이다 무시
     check_rate_hz: 1.0          # 장애물 판단 주기 [Hz]
 
     # debug_mission_people_estop_node 전용 (기본 노드는 안 씀)

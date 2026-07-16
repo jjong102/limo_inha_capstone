@@ -4,6 +4,7 @@ import sys
 
 import rclpy
 from ament_index_python.packages import get_package_share_directory
+from geometry_msgs.msg import Twist
 from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data
 from sensor_msgs.msg import LaserScan
@@ -21,11 +22,15 @@ from std_msgs.msg import String
 #      끝난 순간과 겹쳤을 때 그 유일한 메시지가 유실돼서 manager가 영원히 대기
 #      상태에 갇히는 문제가 있었다(실측으로 확인) — 여러 번 보내면 그중 하나라도
 #      discovery 완료 이후에 도착할 확률이 훨씬 높아져서 이 레이스를 사실상 없앤다.
-#   2. obstacle_min_time초 동안은 라이다를 무시한다 (막 시작했을 때 근처 물체로
-#      바로 오탐하지 않도록). 정확히 obstacle_min_time초가 되는 순간 'active'를
-#      한 번 발행한다 — manager는 이 신호를 받고서야(자기 타이머를 따로 재지 않고)
-#      선제 감속을 시작하므로, "라이다 활성화"와 "감속 시작"이 오차 없이 정확히
-#      같은 순간에 일어난다.
+#   2. /cmd_vel의 linear.x가 처음으로 0이 아니게 되는 순간(=실제로 출발하는 순간)을
+#      0초로 잡는다 — 이 노드 자신의 프로세스 기동 시각을 기준으로 삼으면 subprocess
+#      기동/DDS discovery 지연 때문에 "출발 후 몇 초"가 실행할 때마다 들쭉날쭉해져서,
+#      대신 실제 주행 명령(mission_manager_node가 내보내는 /cmd_vel)이 나가는 순간에
+#      직접 동기화한다. 그 뒤 obstacle_min_time초 동안은 라이다를 무시하고(막 출발했을
+#      때 근처 물체로 바로 오탐하지 않도록), 정확히 obstacle_min_time초가 되는 순간
+#      'active'를 한 번 발행한다 — manager는 이 신호를 받고서야(자기 타이머를 따로
+#      재지 않고) 선제 감속을 시작하므로, "라이다 활성화"와 "감속 시작"이 오차 없이
+#      정확히 같은 순간에 일어난다.
 #   3. 그 이후 check_rate_hz(기본 1Hz)마다 전방을 0도로 뒀을 때
 #      obstacle_angle_deg_range=[min, max] 범위 안에서 obstacle_distance_m보다
 #      가까운 포인트가 obstacle_min_points개 이상인지 판단한다.
@@ -47,7 +52,7 @@ class MissionPeopleEstopNode(Node):
         self.declare_parameter('obstacle_angle_deg_range', [-10.0, 10.0])
         self.declare_parameter('obstacle_distance_m', 1.0)
         self.declare_parameter('obstacle_min_points', 1)
-        self.declare_parameter('obstacle_min_time', 7.0)  # 시작 후 이 시간(초) 전에는 라이다 무시
+        self.declare_parameter('obstacle_min_time', 7.0)  # 출발(cmd_vel nonzero) 후 이 시간(초) 전에는 라이다 무시
         self.declare_parameter('check_rate_hz', 1.0)       # 판단 주기
 
         angle_deg_range = self.get_parameter('obstacle_angle_deg_range').value
@@ -59,7 +64,8 @@ class MissionPeopleEstopNode(Node):
         check_rate_hz = self.get_parameter('check_rate_hz').value
 
         self._state = 'clear'  # 'stop' | 'clear' — debug 서브클래스의 마커 색상용
-        self._start_time = self.get_clock().now()
+        self._departed = False  # /cmd_vel이 처음 0이 아니게 된 시점(출발) 감지 여부
+        self._start_time = None  # 출발 감지 시각 — _departed=True가 되는 순간 채워짐
         self._latest_scan = None
         self._was_obstacle = False  # 장애물이 한 번이라도 감지된 적 있는지 (종료 조건용)
         self.done = False  # True가 되면 main()의 spin 루프가 알아서 멈춘다
@@ -69,23 +75,38 @@ class MissionPeopleEstopNode(Node):
         # 라이다 드라이버는 보통 BEST_EFFORT로 발행하므로 반드시 sensor_data QoS로 구독해야 한다.
         self.scan_sub = self.create_subscription(
             LaserScan, '/scan', self._on_scan_msg, qos_profile_sensor_data)
+        # mission_manager_node가 실제로 주행 명령을 내보내는 순간(=출발)을 감지하기
+        # 위한 구독 (위 흐름 2번 참고, _on_cmd_vel_msg에서 처리).
+        self.cmd_vel_sub = self.create_subscription(
+            Twist, '/cmd_vel', self._on_cmd_vel_msg, 10)
 
         # 생성자에서 바로 발행하면 manager와의 DDS discovery가 아직 안 끝나 유실될 수
         # 있어서, 짧게 지연 후 여러 번 발행한다 (위 흐름 1번 참고).
         self._ready_timer = self.create_timer(_ANNOUNCE_INTERVAL_SEC, self._announce_ready)
-        # obstacle_min_time초 뒤 정확히 한 번 'active' 발행 (위 흐름 2번 참고). 이 시점엔
-        # 이미 announce가 여러 번 성공했을 시간이 충분해서(초 단위 차이) discovery race
-        # 걱정 없이 단발성으로 보내도 안전하다.
-        self._activate_timer = self.create_timer(self.obstacle_min_time, self._on_activate)
+        # 출발 감지 시점에 _on_cmd_vel_msg가 생성한다 (위 흐름 2번 참고) — 그 전에는
+        # obstacle_min_time을 셀 기준 시각 자체가 없으므로 타이머도 만들 수 없다.
+        self._activate_timer = None
         self._check_timer = self.create_timer(1.0 / check_rate_hz, self._check_tick)
 
         self.get_logger().info(
-            f'PeopleEstop ready — {self.obstacle_min_time}초 뒤부터 {check_rate_hz}Hz로 '
-            f'전방 {angle_deg_range}도, {self.obstacle_distance_m}m 이내 포인트 '
-            f'{self.obstacle_min_points}개 이상 판단, 장애물 해소되면 종료')
+            f'PeopleEstop ready — cmd_vel 출발 감지 후 {self.obstacle_min_time}초 뒤부터 '
+            f'{check_rate_hz}Hz로 전방 {angle_deg_range}도, {self.obstacle_distance_m}m 이내 '
+            f'포인트 {self.obstacle_min_points}개 이상 판단, 장애물 해소되면 종료')
 
     def _on_scan_msg(self, msg: LaserScan):
         self._latest_scan = msg
+
+    def _on_cmd_vel_msg(self, msg: Twist):
+        if self._departed or abs(msg.linear.x) < 1e-6:
+            return
+        self._departed = True
+        self._start_time = self.get_clock().now()
+        # 이 시점부터 obstacle_min_time초 뒤 정확히 한 번 'active' 발행 (위 흐름 2번
+        # 참고). 이미 출발한 뒤라 announce도 여러 번 끝났을 시간이라, discovery race
+        # 걱정 없이 단발성으로 보내도 안전하다.
+        self._activate_timer = self.create_timer(self.obstacle_min_time, self._on_activate)
+        self.get_logger().info(
+            f'cmd_vel 출발 감지 — {self.obstacle_min_time}초 뒤 라이다 활성화(active) 발행')
 
     def _announce_ready(self):
         self.state_pub.publish(String(data='clear'))
@@ -112,6 +133,9 @@ class MissionPeopleEstopNode(Node):
         return count
 
     def _check_tick(self):
+        if not self._departed:
+            self._on_scan(self._latest_scan, False, 0)
+            return
         elapsed_sec = (self.get_clock().now() - self._start_time).nanoseconds / 1e9
         if elapsed_sec < self.obstacle_min_time:
             self._on_scan(self._latest_scan, False, 0)

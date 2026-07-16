@@ -40,8 +40,7 @@ PUBLISH_RATE_HZ = 20.0    # cmd_vel publish 주기
 STEPS = [
     # direction, steer_sign,   duration
     ('REV',      -1,           4.8),
-    ('REV',      +1,           1.25),
-    ('REV',      0,           0.2),
+    ('REV',      +1,           1.4),
     ('FWD',      +1,           0.9),
     ('REV',      +1,           1.0),
     ('FWD',      +1,           0.9),
@@ -67,7 +66,7 @@ class MissionParkingNode(Node):
         self.ANGLE_BAND = 3.0
 
         # --- 오른쪽 벽 추종 ---
-        self.TARGET_RIGHT_DIST = 0.5
+        self.TARGET_RIGHT_DIST = 0.42
         self.DIST_GAIN = 2.2
         self.ANGLE_GAIN = 4.0
 
@@ -77,7 +76,7 @@ class MissionParkingNode(Node):
         self.CORRECT_SPEED = 0.06
 
         # --- 정면 앞벽 정지 ---
-        self.STOP_DISTANCE = 0.34
+        self.STOP_DISTANCE = 0.36
         self.FRONT_ANGLE = 10.0
 
         # --- 유효 스캔 범위 ---
@@ -86,7 +85,7 @@ class MissionParkingNode(Node):
 
         # --- 주행 ---
         self.CRUISE_SPEED = 1.0    # 개방 구간 순항 속도 [m/s] (건드리지 않음 — 참고/비교용)
-        self.PARKING_APPROACH_SPEED = 0.3  # 주차 지정 위치까지 접근하는 실제 속도 [m/s]
+        self.PARKING_APPROACH_SPEED = 0.15  # 주차 지정 위치까지 접근하는 실제 속도 [m/s]
         self.MAX_STEER = 0.42
 
         # --- 앞벽 거리 기반 감속 (정렬 오차 기반 감속과 별개로 항상 같이 적용) ---

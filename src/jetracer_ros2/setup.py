@@ -40,6 +40,7 @@ setup(
             'mission_track_following_node = jetracer_ros2.mission_track_following_node:main',
             'debug_mission_track_following_node = jetracer_ros2.debug_mission_track_following_node:main',
             'mission_parking_node = jetracer_ros2.mission_parking_node:main',
+            'mission_parking_test_node = jetracer_ros2.mission_parking_test_node:main',
         ],
     },
 )
