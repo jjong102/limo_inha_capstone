@@ -1,1 +1,0 @@
-/home/wego/third_impact/build/jetracer_ros2/launch/all_in_node.launch.py

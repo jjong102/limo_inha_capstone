@@ -1,7 +1,0 @@
-[console_scripts]
-cone_check_node = limo_aj.cone_check:main
-cone_node = limo_aj.cone:main
-lidar_angle_node = limo_aj.lidar_angle_check:main
-lidar_check_node = limo_aj.lidar_check:main
-steering_test_node = limo_aj.steering_test:main
-traffic_node = limo_aj.traffic:main
